@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YO AMO EL PEDEFE · Herramientas PDF gratis</title>
+<style>
+:root{--ink:#14213d;--bg:#eef1f6;--ac:#e5174f;--ac2:#ffd23f;--mut:#5b6478;--ln:#d6dbe6}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;font:16px/1.5 "Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--ink);color:#fff;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+h1{margin:0;font:900 24px/1 "Arial Black",Impact,sans-serif;letter-spacing:-.5px;cursor:pointer}h1 b{color:var(--ac2)}
+#q{flex:1;min-width:200px;max-width:420px;padding:10px 14px;border-radius:10px;border:0;font:inherit}
+main{max-width:1180px;margin:0 auto;padding:20px}
+h2{margin:24px 0 10px;font-size:20px}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.tool{background:#fff;border:2px solid transparent;border-radius:14px;padding:16px;cursor:pointer;text-align:left;font:inherit;color:inherit;box-shadow:0 1px 3px #14213d22}
+.tool:hover,.tool:focus-visible{border-color:var(--ac);outline:0}
+.tool i{font-style:normal;font-size:30px;display:block}.tool b{display:block;margin:6px 0 2px}.tool span{font-size:13px;color:var(--mut)}
+.tool.off{opacity:.65}.tool em{font-size:12px;background:var(--ac2);padding:1px 8px;border-radius:9px;font-style:normal}
+.top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.top h2{margin:0;flex:1}
+.btn{padding:9px 16px;border-radius:9px;border:1px solid var(--ln);background:#fff;font:inherit;cursor:pointer;color:var(--ink)}
+.btn:hover{border-color:var(--ink)}.btn.pri{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:700}.btn:disabled{opacity:.5}
+.muted{color:var(--mut);margin:4px 0 14px}
+.drop{display:block;border:3px dashed var(--ln);border-radius:16px;padding:34px 16px;text-align:center;cursor:pointer;background:#fff;margin-bottom:14px}
+.drop.ov,.drop:hover{border-color:var(--ac)}.drop strong{font-size:18px}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#fff;border-radius:10px;padding:8px 12px;margin:6px 0}
+.row span{overflow-wrap:anywhere}.row div{display:flex;gap:6px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:12px 0}
+.opts label{display:flex;flex-direction:column;font-size:14px;gap:4px;color:var(--mut)}
+.opts input,.opts select,.opts textarea{padding:8px;border:1px solid var(--ln);border-radius:8px;font:inherit;color:var(--ink)}
+.opts textarea{grid-column:1/-1;min-height:160px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;align-items:center}.bar input{padding:8px;border:1px solid var(--ln);border-radius:8px;font:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:10px 0}
+.pg{background:#fff;border:3px solid transparent;border-radius:10px;padding:6px;cursor:pointer;position:relative;text-align:center;font-size:12px}
+.pg.on{border-color:var(--ac)}.pg.drag{opacity:.4}
+.th{height:150px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f3f4f8;border-radius:6px}
+.th img{max-width:100%;max-height:100%;transition:transform .2s}.th.bl{background:#fff;border:1px dashed var(--ln)}
+.ac{display:flex;justify-content:center;gap:3px;margin-top:5px}.ac button{border:1px solid var(--ln);background:#fff;border-radius:6px;cursor:pointer;padding:1px 6px}
+#act{margin:16px 0}
+#pbw{position:fixed;top:0;left:0;right:0;height:5px;background:#0002;opacity:0;transition:opacity .3s;z-index:9}#pb{height:100%;width:0;background:var(--ac)}
+#st{color:var(--mut);font-size:14px;min-height:20px}
+#err{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#8b1030;color:#fff;padding:12px 18px;border-radius:10px;max-width:92vw;z-index:10;cursor:pointer}
+#md,#cm{position:fixed;inset:0;background:#000b;z-index:11;display:flex;flex-direction:column;align-items:center;padding:12px;overflow:auto;color:#fff;gap:8px}
+#cm canvas{max-width:48%;background:#fff}.est{background:#fff;border-radius:10px;padding:4px 14px;font-size:14px}
+#mc{max-width:100%;background:#fff}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
+</style><style>
+/* ===== Rediseño ===== */
+:root{--ac:#e5174f;--ink:#101a33;--bg:#f1f3f9}
+body{background:radial-gradient(1200px 500px at 80% -10%,#ffe9ef 0,transparent 60%),var(--bg)}
+header{background:linear-gradient(115deg,#101a33,#2a1d5e 70%,#4b1d6b);box-shadow:0 4px 20px #101a3333;position:sticky;top:0;z-index:5}
+h1 b{background:linear-gradient(90deg,#ffd23f,#ff7a59);-webkit-background-clip:text;background-clip:text;color:transparent}
+#q{background:#ffffff1f;color:#fff;border:1px solid #ffffff33;backdrop-filter:blur(6px)}#q::placeholder{color:#ffffffaa}
+h2{letter-spacing:-.3px}
+.tool{border-radius:18px;border:1px solid #e3e7f2;transition:transform .18s,box-shadow .18s,border-color .18s}
+.tool:hover,.tool:focus-visible{transform:translateY(-4px);box-shadow:0 14px 28px #101a3326;border-color:var(--ac)}
+.tool i{width:54px;height:54px;display:grid;place-items:center;background:linear-gradient(135deg,#ffe3ea,#fff1bd);border-radius:15px;font-size:26px;margin-bottom:6px}
+.btn{border-radius:12px;transition:transform .12s,box-shadow .15s,border-color .15s}.btn:hover{transform:translateY(-1px);box-shadow:0 6px 14px #101a3320}
+.btn.pri{background:linear-gradient(135deg,#e5174f,#ff5a4d);border:0;box-shadow:0 6px 16px #e5174f55}
+.drop{border-radius:20px;border-width:2px;transition:all .2s}.drop.ov,.drop:hover{background:#fff4f7;transform:scale(1.005)}
+.row,.est{border:1px solid #e6e9f3;box-shadow:0 1px 2px #101a3310}
+#grid{position:relative;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}
+.pg{border-radius:14px;border:2px solid #e6e9f3;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y;animation:fade .25s both;transition:box-shadow .15s,border-color .15s,background .15s}
+.pg:hover{box-shadow:0 10px 22px #101a3322;border-color:#c9cfe2}
+.pg.on{border-color:var(--ac);background:#fff2f6;box-shadow:0 0 0 3px #e5174f22}
+.pg.on::after{content:'✓';position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px;animation:pop .2s}
+.th{border-radius:9px}.th img{pointer-events:none;-webkit-user-drag:none}
+.ac button{transition:background .12s}.ac button:hover{background:#ffe3ea}
+.pg.lift{opacity:.28;transform:scale(.95)}
+.ghost{position:fixed!important;z-index:60;margin:0;pointer-events:none;border-color:var(--ac)!important;box-shadow:0 22px 44px #101a3366;transition:none!important;animation:none!important;background:#fff;cursor:grabbing}
+.ghost::after{display:none}
+.ins{position:absolute;width:6px;border-radius:3px;background:var(--ac);box-shadow:0 0 0 4px #e5174f26,0 0 16px var(--ac);pointer-events:none;z-index:7;transition:left .08s,top .08s}
+.ins::before,.ins::after{content:'';position:absolute;left:-4px;width:14px;height:14px;border-radius:50%;background:var(--ac)}.ins::before{top:-6px}.ins::after{bottom:-6px}
+body.dragging{cursor:grabbing;user-select:none;-webkit-user-select:none}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}@keyframes fade{from{opacity:0}}
+@media(max-width:600px){#grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}main{padding:12px}.tools{grid-template-columns:repeat(2,1fr)}}
+</style>
+<style>
+#vw{position:fixed;inset:0;z-index:80;background:#0b1226f2;display:flex;flex-direction:column;color:#fff}
+.vbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:#101a33;border-bottom:1px solid #ffffff22}.vbar .btn{padding:6px 12px}.vbar span{min-width:96px;text-align:center;font-size:14px}.vbar #vd{margin-left:auto}
+#vc{flex:1;overflow:auto;display:flex;justify-content:safe center;align-items:flex-start;padding:16px}#vcv{background:#fff;box-shadow:0 10px 40px #0008;flex:none}
+#grid.sg{display:block}.sgw{position:relative;margin:10px 0;box-shadow:0 6px 24px #101a3330;background:#fff;touch-action:none;max-width:100%}.sgw canvas{display:block}
+.sbox{position:absolute;border:2px dashed var(--ac);background:#e5174f1a;cursor:move;overflow:hidden;padding:4px;line-height:1.25;color:#101a33;white-space:pre-wrap;touch-action:none;user-select:none}
+.sh{position:absolute;right:0;bottom:0;width:18px;height:18px;cursor:nwse-resize;background:var(--ac);clip-path:polygon(100% 0,100% 100%,0 100%)}
+</style>
+<style>
+#pw{position:fixed;inset:0;z-index:90;background:#0b1226cc;display:grid;place-items:center;padding:16px}
+#pwf{background:#fff;border-radius:18px;padding:22px;max-width:380px;width:100%;box-shadow:0 20px 60px #0008}#pwf h3{margin:0 0 6px}
+#pwi{width:100%;padding:12px;border:1px solid var(--ln);border-radius:10px;font:inherit}.pwe{color:#b3123f;min-height:22px;margin:6px 0;font-weight:600;font-size:14px}.pwb{display:flex;gap:8px;justify-content:flex-end}
+.ts{grid-column:1/-1;border:1px solid var(--ln);border-radius:12px;padding:10px 12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff}.ts legend{font-size:13px;color:var(--mut);padding:0 6px}
+.ts input[type=number]{width:72px}.ts input[type=color]{width:44px;height:36px;padding:2px}.ts .ck{flex-direction:row;align-items:center;gap:4px;font-size:15px;border:1px solid var(--ln);border-radius:8px;padding:6px 10px;color:var(--ink);cursor:pointer}
+.tsp{flex-basis:100%;min-height:72px;margin-top:4px;padding:12px;border:1px dashed var(--ln);border-radius:10px;overflow:hidden;background:#fafbff;display:flex;align-items:center;justify-content:center;transition:all .15s}.tsp:empty{display:none}
+footer small{opacity:.7}
+@media(max-width:600px){.btn,.opts input,.opts select{min-height:44px}.top h2{flex-basis:100%;order:3}.ts select{flex:1 1 100%}.vbar .btn{padding:8px 10px}#vd{margin-left:0!important}}
+</style>
+<style>.tn{width:44px;height:44px;object-fit:cover;border-radius:8px;border:1px solid var(--ln);flex:none}.row .tn+span{flex:1;margin-left:10px}</style>
+<style>
+header{gap:12px 16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 12px;margin:0 -4px;position:sticky;top:var(--hh,64px);z-index:4;background:linear-gradient(var(--bg) 82%,transparent);scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--ln);background:#fff;border-radius:999px;padding:8px 16px;font:600 14px inherit;color:var(--ink);cursor:pointer;white-space:nowrap;transition:all .15s}.chip:hover{border-color:var(--ac);color:var(--ac)}
+.cat{scroll-margin-top:calc(var(--hh,64px) + 64px)}.cat h2{display:flex;align-items:center;gap:10px;font-size:16px;letter-spacing:.4px}.cat h2 small{background:#e5174f1a;color:var(--ac);border-radius:999px;padding:1px 10px;font-size:13px}
+#up{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:40;width:48px;height:48px;border-radius:50%;border:0;background:linear-gradient(135deg,#e5174f,#ff5a4d);color:#fff;font-size:22px;font-weight:700;box-shadow:0 8px 22px #e5174f66;cursor:pointer;opacity:0;transform:translateY(16px) scale(.8);pointer-events:none;transition:opacity .2s,transform .2s}
+#up.show{opacity:1;transform:none;pointer-events:auto}#up:focus-visible{outline:3px solid #101a33}
+#err{bottom:84px}
+@media(max-width:600px){.cat h2{font-size:14px}.chip{padding:9px 14px}#up{width:46px;height:46px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head><body>
+<div id="pbw"><div id="pb"></div></div>
+<header><h1 onclick="goHome()" style="cursor:pointer">YO AMO <b>EL PEDEFE</b></h1><input id="q" type="search" placeholder="Buscar herramienta…" aria-label="Buscar herramienta"></header>
+<main id="main"></main>
+<footer>Todo se procesa en tu navegador. Tus archivos no se envían a ningún servidor.<br><small id="ver"></small></footer>
+<button id="up" type="button" aria-label="Subir al principio" title="Subir al principio">↑</button>
+<div id="err" hidden></div>
+<div id="md" hidden><div><button class="btn" id="mp">‹</button> <span id="mt"></span> <button class="btn" id="mn">›</button> <button class="btn" id="mx">Cerrar ✕</button></div><canvas id="mc"></canvas></div>
+
+<div id="pw" hidden role="dialog" aria-modal="true"><form id="pwf"><h3>🔒 PDF protegido</h3><p id="pwn"></p><input id="pwi" type="password" autocomplete="off" placeholder="Contraseña" aria-label="Contraseña del PDF"><p id="pwe" class="pwe"></p><div class="pwb"><button type="button" class="btn" id="pwc">Cancelar</button><button class="btn pri">Abrir</button></div></form></div>
+<div id="vw" hidden><div class="vbar"><button class="btn" id="vb">← Volver</button><button class="btn" id="vp">‹</button><span id="vi"></span><button class="btn" id="vn">›</button><button class="btn" id="vzo" title="Reducir">−</button><span id="vzl"></span><button class="btn" id="vzi" title="Ampliar">+</button><button class="btn" id="vfw">Ajustar al ancho</button><button class="btn" id="vfp">Página completa</button><button class="btn pri" id="vd">Descargar</button></div><div id="vc"><canvas id="vcv"></canvas></div></div>
+<div id="cm" hidden style="flex-flow:row wrap;justify-content:center;align-content:flex-start"><div style="width:100%;text-align:center"><button class="btn" id="cp">‹</button> <span id="ct"></span> <button class="btn" id="cn">›</button> <button class="btn" id="cx">Cerrar ✕</button><br>Izquierda: original · Derecha: comprimido</div><canvas id="c0"></canvas><canvas id="c1"></canvas></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="vendor/jszip.min.js"></script>
+<script>
+"use strict";
+/* ============ Utilidades ============ */
+const $=s=>document.querySelector(s);
+const H=(t,a={},...c)=>{const e=document.createElement(t);for(const k in a)k.startsWith('on')?e[k]=a[k]:k=='class'?e.className=a[k]:e.setAttribute(k,a[k]);e.append(...c);return e};
+const tick=()=>new Promise(r=>setTimeout(r));
+const kb=n=>n>1048576?(n/1048576).toFixed(2)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+const prog=(p,t)=>{$('#pb').style.width=Math.round(p*100)+'%';$('#pbw').style.opacity=p>=1?0:1;if(t!==undefined)$('#st')&&($('#st').textContent=t)};
+let errT;const err=e=>{const m=e&&e.name=='PasswordException'?'Este PDF está protegido con contraseña y no se puede abrir.':(e&&e.message)||String(e);const b=$('#err');b.textContent=m;b.hidden=false;clearTimeout(errT);errT=setTimeout(()=>b.hidden=true,9000)};
+$('#err').onclick=()=>$('#err').hidden=true;
+const dl=(b,n)=>{const u=URL.createObjectURL(b),a=H('a',{href:u,download:n});document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)};
+const cvBlob=(c,t,q)=>new Promise(r=>c.toBlob(r,t,q));
+const base=n=>(n||'documento').replace(/\.[^.]+$/,'');
+const go=fn=>async(...a)=>{try{await fn(...a)}catch(e){console.error(e);err(e)}finally{prog(1,'')}};
+const {PDFDocument:D,StandardFonts:SF,rgb,degrees}=PDFLib;
+const clean=s=>s.replace(/\t/g,'    ').replace(/[^\n\x20-\x7E\xA0-\xFF]/g,'?'); // WinAnsi (fuentes estándar PDF)
+
+/* pdf.js: el worker se descarga y se carga como Blob para que funcione también abriendo el HTML desde disco */
+const wr=fetch('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js').then(r=>r.text())
+ .then(t=>{pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([t],{type:'text/javascript'}))})
+ .catch(()=>{pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'});
+
+/* "1-3, 5, 8-10" -> [[0,1,2],[4],[7,8,9]] (índices base 0) */
+function pr(s,n){const g=[];for(const p of s.split(',')){const m=p.trim().match(/^(\d+)(?:\s*-\s*(\d+))?$/);
+ if(!m){if(p.trim())throw new Error(`Intervalo no válido: «${p.trim()}». Ejemplo: 1-3, 5, 8-10`);continue}
+ let a=+m[1],b=+(m[2]||m[1]);if(a>b)[a,b]=[b,a];
+ if(a<1||b>n)throw new Error(`El intervalo ${a}-${b} sale del documento (tiene ${n} páginas).`);
+ g.push([...Array(b-a+1)].map((_,i)=>a-1+i))}return g}
+
+/* ============ Catálogo de herramientas ============ */
+const T=[
+{id:'merge',n:'Unir PDF',i:'🧩',c:'Organizar PDF',d:'Combina varios PDF en uno',k:'pages',multi:1,bar:['add'],act:'Unir PDF',out:'unido'},
+{id:'split',n:'Dividir PDF',i:'✂️',c:'Organizar PDF',d:'Por intervalos, cada N páginas o una por archivo',k:'split',act:'Dividir PDF'},
+{id:'extract',n:'Extraer páginas',i:'📤',c:'Organizar PDF',d:'Guarda solo las páginas que elijas',k:'pages',sel:1,act:'Extraer páginas seleccionadas',out:'extraido'},
+{id:'delete',n:'Eliminar páginas',i:'🗑️',c:'Organizar PDF',d:'Quita las páginas que no quieras',k:'pages',sel:1,act:'Eliminar páginas seleccionadas',out:'sin_paginas'},
+{id:'reorder',n:'Reordenar páginas',i:'↕️',c:'Organizar PDF',d:'Arrastra las miniaturas (o usa ◀ ▶)',k:'pages',act:'Guardar PDF',out:'reordenado'},
+{id:'rotate',n:'Rotar páginas',i:'🔄',c:'Organizar PDF',d:'Gira páginas de 90° en 90°',k:'pages',bar:['rot'],act:'Guardar PDF',out:'rotado'},
+{id:'dup',n:'Duplicar páginas',i:'📑',c:'Organizar PDF',d:'Copia páginas dentro del documento',k:'pages',bar:['dup'],act:'Guardar PDF',out:'duplicado'},
+{id:'insert',n:'Insertar páginas de otro PDF',i:'📥',c:'Organizar PDF',d:'Añade páginas de otro PDF donde quieras',k:'pages',bar:['ins'],act:'Guardar PDF',out:'insertado'},
+{id:'blank',n:'Añadir páginas en blanco',i:'⬜',c:'Organizar PDF',d:'Inserta hojas vacías',k:'pages',bar:['blank'],act:'Guardar PDF',out:'con_blancos'},
+{id:'organize',n:'Organizar todo',i:'🗂️',c:'Organizar PDF',d:'Reordena, rota, duplica, borra, inserta…',k:'pages',bar:['rot','dup','del','blank','ins'],act:'Guardar PDF',out:'organizado'},
+{id:'pdf2jpg',n:'PDF a JPG',i:'🖼️',c:'Convertir PDF',d:'Cada página como imagen JPG',k:'toimg',fmt:'jpeg',ext:'jpg',act:'Convertir a JPG',multi:1},
+{id:'pdf2png',n:'PDF a PNG',i:'🏞️',c:'Convertir PDF',d:'Cada página como imagen PNG',k:'toimg',fmt:'png',ext:'png',act:'Convertir a PNG',multi:1},
+{id:'img2pdf',n:'Imágenes a PDF',i:'📷',c:'Convertir PDF',d:'JPG, PNG, WEBP, BMP, GIF, TIFF y SVG en un solo PDF',k:'img2pdf',act:'Crear PDF',multi:1},
+{id:'ocrimg',n:'OCR de imágenes',i:'🧾',c:'Convertir PDF',d:'Texto de imágenes: copiar, TXT o PDF con texto seleccionable',k:'ocrimg',act:'Reconocer texto',multi:1},
+{id:'pdf2txt',n:'PDF a TXT',i:'📝',c:'Convertir PDF',d:'Extrae el texto de los PDF',k:'pdf2txt',act:'Extraer texto',multi:1},
+{id:'txt2pdf',n:'TXT a PDF',i:'📄',c:'Convertir PDF',d:'Convierte texto plano en PDF',k:'txt2pdf',act:'Crear PDF'},
+{id:'pdf2docx',n:'PDF a Word',i:'📘',c:'Convertir PDF',d:'DOCX editable: párrafos, títulos, tablas, imágenes',k:'pdf2docx',act:'Convertir a Word (.docx)'},
+{id:'docx2pdf',n:'Word a PDF',i:'📗',c:'Convertir PDF',d:'DOCX → PDF mediante impresión del navegador',k:'docx2pdf',raw:1,acc:'.docx',act:'Preparar PDF'},
+{id:'pdf2xlsx',n:'PDF a Excel',i:'📊',c:'Convertir PDF',d:'Extrae tablas a hojas XLSX',k:'pdf2xlsx',act:'Convertir a Excel (.xlsx)'},
+{id:'xlsx2pdf',n:'Excel a PDF',i:'📈',c:'Convertir PDF',d:'XLSX, XLS o CSV a PDF ajustado a la página',k:'xlsx2pdf',raw:1,acc:'.xlsx,.xls,.csv',act:'Convertir a PDF'},
+{id:'pdf2pptx',n:'PDF a PowerPoint',i:'📙',c:'Convertir PDF',d:'Una diapositiva por página',k:'pdf2pptx',act:'Convertir a PowerPoint (.pptx)'},
+{id:'compress',n:'Comprimir PDF',i:'🗜️',c:'Optimizar PDF',d:'Niveles, estimación de tamaño y comparación',k:'compress',act:'Comprimir',multi:1},
+{id:'wm',n:'Marca de agua',i:'💧',c:'Otras herramientas',d:'Texto diagonal en todas las páginas',k:'wm',act:'Añadir marca de agua',multi:1},
+{id:'num',n:'Números de página',i:'🔢',c:'Otras herramientas',d:'Numera las páginas',k:'num',act:'Añadir números',multi:1},
+{id:'protect',n:'Proteger con contraseña',i:'🔒',c:'Otras herramientas',d:'Cifrado AES-256 con permisos',k:'protect',act:'Proteger PDF',multi:1},
+{id:'ocr',n:'OCR PDF',i:'🔎',c:'Convertir PDF',d:'Texto seleccionable y buscable en PDF escaneados',k:'ocr',act:'Reconocer texto'},
+{id:'sign',n:'Firmar con certificado digital',i:'🖋️',c:'Otras herramientas',d:'Firma PAdES real: AutoFirma (ordenador) y móvil iOS/Android (2 vías)',k:'sign',act:'Firmar con AutoFirma'},
+{id:'meta',n:'Metadatos',i:'🏷️',c:'Otras herramientas',d:'Consulta y edita título, autor, etc.',k:'meta',act:'Guardar metadatos'},
+{id:'view',n:'Visor y miniaturas',i:'👁️',c:'Otras herramientas',d:'Mira tu PDF página a página',k:'pages',view:1}
+];
+const O={ // opciones por tipo
+split:()=>`<label>Modo<select id="o_m"><option value="r">Por intervalos (un archivo por intervalo)</option><option value="n">Cada N páginas</option><option value="o">Una página por archivo</option></select></label><label>Intervalos o valor de N<input id="o_v" value="1-2, 3-4" placeholder="1-3, 4-6, 9"></label>`,
+toimg:()=>`<label>Resolución<select id="o_s"><option value="1">Baja (72 ppp)</option><option value="1.5">Media (108 ppp)</option><option value="2" selected>Alta (144 ppp)</option><option value="3">Muy alta (216 ppp)</option></select></label><label>Calidad JPG<input id="o_q" type="range" min=".4" max="1" step=".05" value=".9"></label>`,
+meta:()=>[['t','Título'],['a','Autor'],['s','Asunto'],['k','Palabras clave (separadas por comas)'],['c','Creador'],['p','Productor']].map(([k,l])=>`<label>${l}<input id="m_${k}"></label>`).join('')+`<p id="mi" class="muted" style="grid-column:1/-1"></p>`,
+};
+
+/* ============ Página principal ============ */
+let S={};let uid=0;const TH={};
+
+/* ============ Espacio de trabajo ============ */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);e.target._load&&e.target._load()}}),{rootMargin:'300px'});
+function renderTool(id){const t=T.find(x=>x.id==id);(S.files||[]).forEach(f=>f.thumb&&URL.revokeObjectURL(f.thumb));S={t,files:[],pages:[],sel:new Set,res:[]};const m=$('#main');m.replaceChildren();
+ const acc=t.acc?t.acc:IMGK.includes(t.k)?IMG_ACC:t.k=='txt2pdf'?'.txt,text/plain':'.pdf,application/pdf';
+ const inp=H('input',{type:'file',hidden:'',accept:acc,...(t.multi?{multiple:''}:{})});
+ const dz=H('label',{class:'drop',id:'dz'},H('strong',{},t.dz?t.dz:IMGK.includes(t.k)?'Arrastra tus imágenes aquí':t.k=='txt2pdf'?'Arrastra un .txt aquí (opcional)':t.multi?'Arrastra tus PDF aquí':'Arrastra tu PDF aquí'),H('br'),'o haz clic para seleccionar'+(t.multi?' varios archivos':' un archivo'),inp);
+ inp.onchange=go(async()=>{await addFiles(inp.files);inp.value=''});
+ dz.ondragover=e=>{e.preventDefault();dz.classList.add('ov')};dz.ondragleave=()=>dz.classList.remove('ov');
+ dz.ondrop=go(async e=>{e.preventDefault();dz.classList.remove('ov');await addFiles(e.dataTransfer.files)});
+ const opts=H('div',{class:'opts',id:'opts'});if(O[t.k]){opts.innerHTML=typeof O[t.k]=='function'?O[t.k]():'';opts.oninput=()=>{t.k=='compress'&&updEst();t.k=='sign'&&(signMode(),SG.place&&SG.place())};if(t.k=='num')setTimeout(()=>{$('#o_pv').onclick=numPrev},0);if(t.k=='sign')setTimeout(()=>{if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)&&$('#o_sm'))$('#o_sm').value='p';signMode()},0);if(t.k=='imgconv')setTimeout(webpUI,0);if(PV[t.k]){setTimeout(PV[t.k],0);opts.addEventListener('input',()=>PV[t.k]())}}
+ m.append(H('div',{class:'top'},H('button',{class:'btn',onclick:goHome},'← Volver'),H('h2',{},t.i+' '+t.n),H('button',{class:'btn',onclick:()=>{renderTool(id);scrollTo(0,0)}},'Borrar y empezar de nuevo')),
+  H('p',{class:'muted'},t.d),dz,H('div',{id:'files'}),opts,H('div',{class:'bar',id:'bar'}),H('div',{class:'grid',id:'grid'}),
+  H('div',{id:'act'},...(t.act?[H('button',{class:'btn pri',id:'go',onclick:go(run)},t.act)]:[]),H('div',{id:'st'})),H('div',{id:'res'}));
+ buildBar();renderFiles()}
+
+function fileBtn(txt,ins){const i=H('input',{type:'file',hidden:'',accept:'.pdf,application/pdf',multiple:''});i.onchange=go(async()=>{await addFiles(i.files,{ins});i.value=''});return H('label',{class:'btn'},txt,i)}
+const insPos=()=>{let p=-1;S.pages.forEach((x,i)=>{if(S.sel.has(x.id))p=i});return p<0?S.pages.length:p+1};
+function buildBar(){const t=S.t,b=$('#bar'),B=t.bar||[];
+ if(t.sel){const r=H('input',{placeholder:'Páginas: 1-3, 5',size:14});
+  b.append(r,H('button',{class:'btn',onclick:()=>{try{S.sel.clear();pr(r.value,S.pages.length).flat().forEach(i=>S.sel.add(S.pages[i].id));renderPages()}catch(e){err(e)}}},'Seleccionar'),
+   H('button',{class:'btn',onclick:()=>{S.pages.forEach(p=>S.sel.add(p.id));renderPages()}},'Todas'),H('button',{class:'btn',onclick:()=>{S.sel.clear();renderPages()}},'Ninguna'))}
+ if(B.includes('add'))b.append(fileBtn('+ Añadir más PDF',false));
+ if(B.includes('ins'))b.append(fileBtn('Insertar PDF tras la página seleccionada (o al final)',true));
+ if(B.includes('blank'))b.append(H('button',{class:'btn',onclick:()=>{S.pages.splice(insPos(),0,{id:++uid,blank:1,rot:0});renderPages()}},'+ Página en blanco (tras la seleccionada o al final)'));
+ if(t.k=='pages'&&!t.view)b.append(H('span',{class:'muted'},t.sel?'Haz clic en las páginas para marcarlas.':'Arrastra las páginas para ordenarlas.'))}
+
+const fileOf=u=>S.files.find(f=>f.uid==u);
+async function addFiles(list,o={}){await wr;const t=S.t,k=t.k;list=[...list];if(!list.length)return;
+ if(IMGK.includes(k)){for(const f of list){if(!isImgFile(f)){err(`«${f.name}» no es una imagen.`);continue}
+   S.files.push({uid:++uid,name:f.name,type:f.type,bytes:await f.arrayBuffer(),size:f.size,thumb:/tiff?$/i.test(f.name)||/svg/i.test(f.name+f.type)?null:URL.createObjectURL(f)})}return renderFiles()}
+ if(k=='audioconv'){for(const f of list){if(!isAudioFile(f)){err(new Error(`«${f.name}» no es un archivo de audio.`));continue}S.files.push({uid:++uid,name:f.name,type:f.type,bytes:await f.arrayBuffer(),size:f.size})}return renderFiles()}
+ if(k=='txt2pdf'){const f=list[0];$('#o_txt').value=await f.text();S.files=[{uid:++uid,name:f.name,size:f.size}];return renderFiles()}
+ if(t.raw){const f=list[0];S.files=[{uid:++uid,name:f.name,bytes:await f.arrayBuffer(),size:f.size}];return renderFiles()}
+ if(!t.multi&&!o.ins){S.files=[];S.pages=[];S.sel.clear()}
+ let pos=o.ins?insPos():S.pages.length;
+ for(let x=0;x<list.length;x++){const f=list[x];prog(x/list.length,'Leyendo '+f.name+'…');
+  try{const bytes=await f.arrayBuffer();const{doc,pw}=await openPdf(bytes,f.name);let fb=bytes,noLib=false;if(pw!=null){try{fb=await decryptPdf(bytes,pw)}catch(e){noLib=true}}
+   const F={uid:++uid,name:f.name,bytes:fb,doc,n:doc.numPages,size:f.size,noLib,pw};S.files.push(F);
+   if(k=='pages'){const np=[...Array(F.n)].map((_,i)=>({id:++uid,f:F.uid,i,rot:0}));S.pages.splice(pos,0,...np);pos+=np.length}
+  }catch(e){err(e.name=='PasswordException'||e.cancel?e:new Error(`No se pudo leer «${f.name}». ¿Está dañado o no es un PDF?`))}}
+ renderFiles();if(k=='pages')renderPages();if(k=='meta')await fillMeta();prog(1,'')}
+
+function renderFiles(){const t=S.t,fs=$('#files');if(!fs)return;fs.replaceChildren();if(t.k=='compress')updEst();if(t.k=='sign')setTimeout(signUI,0);
+ $('#dz').style.display=(S.files.length&&!t.multi)?'none':'';
+ S.files.forEach((f,x)=>{const b=[];
+  if(IMGK.includes(t.k))b.push(H('button',{class:'btn',onclick:()=>{if(x>0){[S.files[x-1],S.files[x]]=[S.files[x],S.files[x-1]];renderFiles()}}},'▲'),H('button',{class:'btn',onclick:()=>{if(x<S.files.length-1){[S.files[x+1],S.files[x]]=[S.files[x],S.files[x+1]];renderFiles()}}},'▼'));
+  b.push(H('button',{class:'btn',onclick:()=>{const rm=S.files.splice(x,1)[0];if(rm.thumb)URL.revokeObjectURL(rm.thumb);S.pages=S.pages.filter(p=>p.f!=f.uid);renderFiles();renderPages()}},'✕ Quitar'));
+  fs.append(H('div',{class:'row'},...(f.thumb?[H('img',{src:f.thumb,class:'tn',alt:''})]:[]),H('span',{},f.name+' · '+kb(f.size)+(f.n?' · '+f.n+' pág.':'')),H('div',{},...b)))})}
+
+/* ---- Miniaturas ---- */
+async function thumb(u,i){const k=u+'-'+i;if(TH[k])return TH[k];const f=fileOf(u);if(!f)return'';
+ const p=await f.doc.getPage(i+1),v=p.getViewport({scale:.4}),c=H('canvas');c.width=v.width;c.height=v.height;
+ await p.render({canvasContext:c.getContext('2d'),viewport:v}).promise;return TH[k]=c.toDataURL('image/jpeg',.7)}
+
+function renderPages(){const g=$('#grid');if(!g)return;g.replaceChildren();const t=S.t,B=t.bar||[];
+ S.pages.forEach((p,x)=>{const c=H('div',{class:'pg'+(S.sel.has(p.id)?' on':''),draggable:'false'}),im=H('img'),w=H('div',{class:'th'},im);
+  if(p.blank)w.classList.add('bl');else if(TH[p.f+'-'+p.i])im.src=TH[p.f+'-'+p.i];else{c._load=()=>thumb(p.f,p.i).then(s=>im.src=s);io.observe(c)}
+  im.style.transform=`rotate(${p.rot}deg)`+(p.rot%180?' scale(.7)':'');
+  const bt=(s,tt,fn)=>H('button',{title:tt,onclick:e=>{e.stopPropagation();fn()}},s),ac=H('div',{class:'ac'});
+  const mv=d=>{const y=x+d;if(y<0||y>=S.pages.length)return;flip(()=>{[S.pages[x],S.pages[y]]=[S.pages[y],S.pages[x]];renderPages()})};
+  if(!t.view)ac.append(bt('◀','Mover atrás',()=>mv(-1)));
+  if(B.includes('rot'))ac.append(bt('↻','Rotar 90°',()=>{p.rot=(p.rot+90)%360;renderPages()}));
+  if(B.includes('dup'))ac.append(bt('⧉','Duplicar',()=>{S.pages.splice(x+1,0,{...p,id:++uid});renderPages()}));
+  if(B.includes('del'))ac.append(bt('✕','Eliminar',()=>{S.pages.splice(x,1);S.sel.delete(p.id);renderPages()}));
+  if(!t.view)ac.append(bt('▶','Mover adelante',()=>mv(1)));
+  const f=p.blank?null:fileOf(p.f);
+  c.dataset.id=p.id;if(!t.view)c.onpointerdown=e=>dragStart(e,c,x);c.append(w,H('div',{title:f?f.name:''},p.blank?'En blanco':(S.files.length>1&&f?f.name.slice(0,14)+' · ':'')+'Pág. '+(p.i+1)),ac);
+  c.onclick=()=>{if(S.noClick)return;if(t.view)return openModal(x);S.sel.has(p.id)?S.sel.delete(p.id):S.sel.add(p.id);c.classList.toggle('on')};
+    g.append(c)})}
+
+/* ---- Visor ---- */
+async function openModal(x){const p=S.pages[x];if(!p)return;const m=$('#md');if(m.hidden)ovOpen();m.hidden=false;m._x=x;const f=fileOf(p.f),pg=await f.doc.getPage(p.i+1),v=pg.getViewport({scale:1.6}),c=$('#mc');
+ c.width=v.width;c.height=v.height;await pg.render({canvasContext:c.getContext('2d'),viewport:v}).promise;$('#mt').textContent=`${f.name} — página ${p.i+1} de ${f.n}`}
+$('#mx').onclick=()=>{$('#md').hidden=true;ovClosed()};$('#mp').onclick=()=>openModal($('#md')._x-1);$('#mn').onclick=()=>openModal($('#md')._x+1);
+
+/* ---- Resultados ---- */
+function setRes(r){S.res=r;const e=$('#res');e.replaceChildren();if(!r.length)return;e.append(H('h2',{},'Resultado'));
+ r.forEach(o=>e.append(H('div',{class:'row'},H('span',{},o.name+' · '+kb(o.blob.size)+(o.note?' · '+o.note:'')),H('div',{},H('button',{class:'btn',onclick:()=>dl(o.blob,o.name)},'Descargar'),...(o.blob.type=='application/pdf'?[H('button',{class:'btn',onclick:go(()=>viewPdf(o.blob,o.name,o.page||1,o.pw))},'Ver PDF')]:[]),...(o.orig?[H('button',{class:'btn',onclick:go(()=>cmp(o.orig,o.blob))},'Comparar'),...(o.blob.size>=o.orig.size?[H('button',{class:'btn',onclick:()=>dl(new Blob([o.orig.bytes],{type:'application/pdf'}),o.orig.name)},'Conservar original')]:[])]:[])))));
+ if(r.length>1)e.append(H('button',{class:'btn pri',onclick:go(zip)},'Descargar todo en ZIP'));
+ e.scrollIntoView({behavior:'smooth'})}
+async function zip(){const z=new JSZip();S.res.forEach(o=>z.file(o.name,o.blob));
+ dl(await z.generateAsync({type:'blob'},m=>prog(m.percent/100,'Creando ZIP…')),'pedefe.zip')}
+const pdfBlob=b=>new Blob([b],{type:'application/pdf'});
+
+/* ============ Motor PDF ============ */
+async function build(pgs){const out=await D.create(),libs={};let last=[595,842];
+ for(let k=0;k<pgs.length;k++){const p=pgs[k];
+  if(p.blank)out.addPage(last);else{const f=fileOf(p.f);libs[p.f]??=await D.load(f.bytes,{ignoreEncryption:true});
+   const[cp]=await out.copyPages(libs[p.f],[p.i]);cp.setRotation(degrees((cp.getRotation().angle+p.rot)%360));out.addPage(cp);last=[cp.getWidth(),cp.getHeight()]}
+  prog((k+1)/pgs.length,`Procesando página ${k+1} de ${pgs.length}…`);if(k%8==7)await tick()}
+ return pdfBlob(await out.save({useObjectStreams:true}))}
+
+async function run(){const t=S.t,k=t.k,B=$('#go');B.disabled=true;setRes([]);
+ try{
+ if(k!='txt2pdf'&&!S.files.length)throw new Error(IMGK.includes(k)?'Añade al menos una imagen.':'Primero añade un archivo.');
+ const nm=base(S.files[0]&&S.files[0].name);
+ if(S.files.some(f=>f.noLib)&&!['toimg','pdf2txt','pdf2docx','pdf2xlsx','pdf2pptx'].includes(k))throw new Error('Este PDF usa un tipo de cifrado que esta herramienta no puede procesar localmente (solo se admite AES-256). Puedes verlo y convertirlo a imágenes, texto, Word, Excel o PowerPoint; para las demás herramientas hay que quitarle antes la contraseña con tu programa habitual.');
+ if(X[k]){await X[k]();return}
+ if(k=='pages'){let pg=S.pages,id=t.id;
+  if(id=='merge'&&S.files.length<2)throw new Error('Añade al menos dos PDF para unirlos.');
+  if(id=='extract'){pg=pg.filter(p=>S.sel.has(p.id));if(!pg.length)throw new Error('Marca las páginas que quieres extraer.')}
+  if(id=='delete'){if(!S.sel.size)throw new Error('Marca las páginas que quieres eliminar.');pg=pg.filter(p=>!S.sel.has(p.id));if(!pg.length)throw new Error('No puedes eliminar todas las páginas.')}
+  if(!pg.length)throw new Error('No hay páginas en el documento.');
+  setRes([{name:`${nm}_${t.out}.pdf`,blob:await build(pg)}])}
+ else if(k=='split'){const F=S.files[0],m=$('#o_m').value,v=$('#o_v').value;let g=[];
+  if(m=='o')g=[...Array(F.n)].map((_,i)=>[i]);
+  else if(m=='n'){const n=Math.floor(+v);if(!(n>=1))throw new Error('Escribe un número N válido (1 o más).');for(let i=0;i<F.n;i+=n)g.push([...Array(Math.min(n,F.n-i))].map((_,j)=>i+j))}
+  else g=pr(v,F.n);
+  if(!g.length)throw new Error('Indica al menos un intervalo, por ejemplo 1-3, 4-6.');
+  const r=[];for(let x=0;x<g.length;x++){const lab=g[x].length>1?`${g[x][0]+1}-${g[x].at(-1)+1}`:`${g[x][0]+1}`;
+   r.push({name:`${nm}_${lab}.pdf`,blob:await build(g[x].map(i=>({f:F.uid,i,rot:0})))});prog((x+1)/g.length)}setRes(r)}
+ else if(k=='toimg'){const sc=+$('#o_s').value,q=+$('#o_q').value,r=[];let tot=S.files.reduce((a,f)=>a+f.n,0),d=0;
+  for(const F of S.files)for(let i=0;i<F.n;i++){const p=await F.doc.getPage(i+1),v=p.getViewport({scale:sc}),c=H('canvas');c.width=v.width;c.height=v.height;
+   const cx=c.getContext('2d');if(t.fmt=='jpeg'){cx.fillStyle='#fff';cx.fillRect(0,0,c.width,c.height)}
+   await p.render({canvasContext:cx,viewport:v}).promise;
+   r.push({name:`${base(F.name)}_p${String(i+1).padStart(3,'0')}.${t.ext}`,blob:await cvBlob(c,'image/'+t.fmt,q)});prog(++d/tot,`Página ${d} de ${tot}…`);await tick()}
+  setRes(r)}
+ else if(k=='pdf2txt'){const r=[];for(const F of S.files){let tx='';
+   for(let i=1;i<=F.n;i++){const c=await(await F.doc.getPage(i)).getTextContent();tx+=`--- Página ${i} ---\n`+c.items.map(s=>s.str+(s.hasEOL?'\n':'')).join('')+'\n\n';prog(i/F.n,`${F.name}: página ${i} de ${F.n}…`);if(i%10==0)await tick()}
+   r.push({name:base(F.name)+'.txt',blob:new Blob([tx],{type:'text/plain;charset=utf-8'}),note:tx.replace(/--- Página \d+ ---|\s/g,'')?'':'sin texto (¿PDF escaneado? no hay OCR)'})}
+  setRes(r)}
+ else if(k=='meta'){const F=S.files[0],d=await D.load(F.bytes,{ignoreEncryption:true,updateMetadata:false}),v=i=>$('#m_'+i).value;
+  d.setTitle(v('t'));d.setAuthor(v('a'));d.setSubject(v('s'));d.setKeywords(v('k').split(',').map(s=>s.trim()).filter(Boolean));d.setCreator(v('c'));d.setProducer(v('p'));
+  setRes([{name:nm+'_metadatos.pdf',blob:pdfBlob(await d.save())}])}
+ }finally{B.disabled=false}}
+
+async function fillMeta(){const F=S.files[0];if(!F)return;const d=await D.load(F.bytes,{ignoreEncryption:true,updateMetadata:false});
+ const m={t:d.getTitle(),a:d.getAuthor(),s:d.getSubject(),k:d.getKeywords(),c:d.getCreator(),p:d.getProducer()};
+ for(const i in m)$('#m_'+i).value=m[i]||'';
+ const f=x=>x?x.toLocaleString('es-ES'):'—';$('#mi').textContent=`${F.n} páginas · ${kb(F.size)} · Creado: ${f(d.getCreationDate())} · Modificado: ${f(d.getModificationDate())}`}
+
+/* ============ AMPLIACIÓN: conversiones Office y compresión avanzada ============ */
+const N=s=>PDFLib.PDFName.of(s),mb=n=>(n/1048576).toFixed(2)+' MB';
+const X={},EC={};
+/* Bibliotecas bajo demanda (solo se descargan al usar la herramienta; los documentos NO se envían) */
+const LIB={};
+const lib=(u,g)=>LIB[u]??=new Promise((ok,ko)=>{if(window[g])return ok(window[g]);const s=H('script',{src:u});
+ s.onload=()=>window[g]?ok(window[g]):ko(new Error('Biblioteca no disponible'));
+ s.onerror=()=>{delete LIB[u];ko(new Error(`No se pudo cargar la biblioteca ${g} (hace falta conexión a internet). Inténtalo de nuevo.`))};document.head.append(s)});
+const XL=()=>lib('https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js','XLSX');
+const PX=()=>lib('https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js','PptxGenJS');
+const MM=()=>lib('https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js','mammoth');
+const sel=F=>{const r=($('#o_r')||{value:''}).value.trim();return r?[...new Set(pr(r,F.n).flat())]:[...Array(F.n).keys()]};
+const RG=`<label>Páginas (vacío = todas)<input id="o_r" placeholder="1-3, 5"></label>`;
+O.pdf2docx=()=>RG+`<label><span><input type="checkbox" id="o_i" checked> Conservar imágenes</span></label><label><span><input type="checkbox" id="o_sc"> Si el PDF es escaneado, insertar las páginas como imágenes (el Word NO será editable)</span></label>`;
+O.pdf2xlsx=()=>RG;
+O.pdf2pptx=()=>RG+`<label>Modo<select id="o_m"><option value="e">Editable: textos en cuadros de texto + imágenes (sin gráficos vectoriales)</option><option value="i">Fiel: cada página como imagen (NO editable)</option></select></label>`;
+O.xlsx2pdf=()=>`<label>Orientación<select id="o_or"><option value="a">Automática</option><option value="v">Vertical</option><option value="h">Horizontal</option></select></label><label>Tamaño de letra<input id="o_z" type="number" value="9" min="5"></label><label>Área de impresión (opcional)<input id="o_ar" placeholder="A1:F40"></label><label><span><input type="checkbox" id="o_fit" checked> Ajustar al ancho de página</span></label>`;
+O.docx2pdf=()=>`<p class="muted" style="grid-column:1/-1">Usa mammoth.js y el motor de impresión del navegador: se abrirá el diálogo de impresión y eliges «Guardar como PDF». Se pierden encabezados, pies, márgenes y tipografías exactas.</p>`;
+O.compress=()=>`<label>Nivel<select id="o_l" onchange="lvl()"><option value="b">Baja: priorizar calidad</option><option value="m" selected>Media: equilibrio</option><option value="a">Alta: menor tamaño posible</option></select></label>
+<label>Calidad JPEG: <span id="qv">65%</span><input id="o_q" type="range" min="20" max="95" step="5" value="65" oninput="$('#qv').textContent=this.value+'%'"></label>
+<label>Escala de las imágenes<select id="o_s"><option value="100">100% (sin reducir)</option><option value="75" selected>75%</option><option value="50">50%</option><option value="35">35%</option></select></label>
+<label><span><input type="checkbox" id="o_rr" checked> Reducir resolución de imágenes</span></label>
+<label><span><input type="checkbox" id="o_gr"> Convertir imágenes a escala de grises</span></label>
+<label><span><input type="checkbox" id="o_mt"> Eliminar metadatos</span></label>
+<label><span><input type="checkbox" id="o_rz"> Rasterizar páginas (último recurso: el texto y los vectores dejan de ser seleccionables)</span></label>
+<div id="est" class="est" style="grid-column:1/-1"></div>`;
+
+/* ---------- Compresión ---------- */
+const LV={b:{sc:100,q:85},m:{sc:75,q:65},a:{sc:50,q:45}};
+function lvl(){const l=LV[$('#o_l').value];$('#o_s').value=l.sc;$('#o_q').value=l.q;$('#qv').textContent=l.q+'%';$('#o_rr').checked=l.sc<100;updEst()}
+const cp=()=>({q:+$('#o_q').value/100,sc:$('#o_rr').checked?+$('#o_s').value/100:1,gr:$('#o_gr').checked,mt:$('#o_mt').checked,rz:$('#o_rz').checked});
+const imgOk=d=>String(d.get(N('Filter')))=='/DCTDecode'&&['/DeviceRGB','/DeviceGray'].includes(String(d.get(N('ColorSpace'))))&&!d.get(N('Decode'))&&!d.get(N('Mask'))&&!d.get(N('DecodeParms'));
+function listImgs(d){const L=[];for(const[ref,ob]of d.context.enumerateIndirectObjects())if(ob instanceof PDFLib.PDFRawStream&&String(ob.dict.get(N('Subtype')))=='/Image'&&imgOk(ob.dict))L.push({ref,ob,sz:ob.contents.length});return L}
+async function reImg(ob,o){let bm;try{bm=await createImageBitmap(new Blob([ob.contents],{type:'image/jpeg'}),{imageOrientation:'none'})}catch(e){return null}
+ if(bm.width<48||bm.height<48){bm.close();return null}
+ const w=Math.max(1,Math.round(bm.width*o.sc)),h=Math.max(1,Math.round(bm.height*o.sc)),c=H('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.drawImage(bm,0,0,w,h);bm.close();
+ if(o.gr){const id=x.getImageData(0,0,w,h),a=id.data;for(let i=0;i<a.length;i+=4)a[i]=a[i+1]=a[i+2]=.299*a[i]+.587*a[i+1]+.114*a[i+2];x.putImageData(id,0,0)}
+ const nb=new Uint8Array(await(await cvBlob(c,'image/jpeg',o.q)).arrayBuffer());return nb.length<ob.contents.length?{nb,w,h}:null}
+async function rasterPdf(F,o,cb){const out=await D.create(),rs=1.4*o.sc;
+ for(let i=1;i<=F.n;i++){const p=await F.doc.getPage(i),c=await pageCv(p,rs),v=p.getViewport({scale:1});
+  const im=await out.embedJpg(await(await cvBlob(c,'image/jpeg',o.q)).arrayBuffer());out.addPage([v.width,v.height]).drawImage(im,{x:0,y:0,width:v.width,height:v.height});cb&&cb(i/F.n);await tick()}
+ return pdfBlob(await out.save({useObjectStreams:true}))}
+async function estF(F,o){
+ if(o.rz){const ps=[...new Set([1,Math.ceil(F.n/2),F.n])];let s=0;
+  for(const i of ps){const p=await F.doc.getPage(i),c=await pageCv(p,1.4*o.sc);s+=(await cvBlob(c,'image/jpeg',o.q)).size}
+  const e=s/ps.length*F.n*1.02;return{lo:e*.85,hi:e*1.2,note:`Muestra de ${ps.length} página(s) renderizadas.`}}
+ const d=await D.load(F.bytes,{ignoreEncryption:true,updateMetadata:false}),L=listImgs(d);
+ const tot=L.reduce((a,b)=>a+b.sz,0);
+ if(!L.length)return{lo:F.size*.95,hi:F.size,note:'No hay imágenes JPEG optimizables sin rasterizar: la reducción será mínima. Prueba «Rasterizar páginas» si es un PDF de imágenes o escaneado.'};
+ const sm=[...L].sort((a,b)=>b.sz-a.sz).slice(0,4);let so=0,sn=0;
+ for(const m of sm){const r=await reImg(m.ob,o);so+=m.sz;sn+=r?r.nb.length:m.sz}
+ const e=F.size-tot+tot*(sn/so),r=sn/so;
+ return{lo:Math.min(e,F.size)*.9,hi:Math.min(F.size,e*1.1),note:`Basada en ${sm.length} de ${L.length} imágenes JPEG (${mb(tot)} en total; ratio medido ${Math.round(r*100)}%). Aproximada: puede variar.`}}
+let eT;function updEst(){clearTimeout(eT);eT=setTimeout(estimate,350)}
+async function estimate(){const e=$('#est');if(!e||!S.t||S.t.k!='compress')return;
+ if(!S.files.length){e.textContent='Añade un PDF para ver el tamaño estimado.';return}
+ const o=cp(),k=JSON.stringify(o),nv=$('#o_l').selectedOptions[0].text.split(':')[0];let h='';e.textContent='Calculando estimación…';
+ try{for(const F of S.files){const key=k+F.uid,r=EC[key]??=await estF(F,o);
+  h+=`<p><b>${F.name}</b><br>Original: ${mb(F.size)} · Nivel: ${nv} (JPEG ${Math.round(o.q*100)}%, escala ${Math.round(o.sc*100)}%)<br>Tamaño final estimado: ${mb(r.lo)} – ${mb(r.hi)}<br>Ahorro estimado: ${mb(F.size-r.hi)} – ${mb(F.size-r.lo)} (${Math.max(0,Math.round((1-r.hi/F.size)*100))}% – ${Math.max(0,Math.round((1-r.lo/F.size)*100))}%)<br><small>${r.note}</small></p>`}
+  if(S.t&&S.t.k=='compress')e.innerHTML=h}catch(x){e.textContent='No se pudo estimar: '+x.message}}
+X.compress=async()=>{const o=cp(),r=[],nv=$('#o_l').selectedOptions[0].text.split(':')[0];
+ for(const F of S.files){let b,inf;
+  if(o.rz){b=await rasterPdf(F,o,p=>prog(p,`${F.name}…`));inf='páginas rasterizadas'}
+  else{const d=await D.load(F.bytes,{ignoreEncryption:true,updateMetadata:false}),L=listImgs(d);let n=0;
+   for(let i=0;i<L.length;i++){const{ref,ob}=L[i],t=await reImg(ob,o);
+    if(t){const dc=ob.dict;dc.set(N('Width'),PDFLib.PDFNumber.of(t.w));dc.set(N('Height'),PDFLib.PDFNumber.of(t.h));dc.set(N('ColorSpace'),N('DeviceRGB'));dc.set(N('BitsPerComponent'),PDFLib.PDFNumber.of(8));d.context.assign(ref,PDFLib.PDFRawStream.of(dc,t.nb));n++}
+    prog((i+1)/L.length,`Optimizando imagen ${i+1} de ${L.length}…`);await tick()}
+   if(o.mt){d.setTitle('');d.setAuthor('');d.setSubject('');d.setKeywords([]);d.setCreator('');d.setProducer('');d.catalog.delete(N('Metadata'))}
+   b=pdfBlob(await d.save({useObjectStreams:true}));inf=`${n} de ${L.length} imágenes optimizadas`}
+  const pc=Math.round((1-b.size/F.size)*100);
+  r.push({name:base(F.name)+'_comprimido.pdf',blob:b,orig:F,note:`Original ${mb(F.size)} → Final ${mb(b.size)} · ahorro ${mb(Math.max(0,F.size-b.size))} (${pc>0?pc+'%':'0%'}) · Calidad: ${nv} (JPEG ${Math.round(o.q*100)}%, escala ${Math.round(o.sc*100)}%${o.gr?', grises':''}) · ${inf}${b.size>=F.size?' · ⚠ El resultado pesa igual o más que el original: puedes conservar el original':''}`})}
+ setRes(r)};
+async function cmp(F,b){const m=$('#cm');if(m.hidden)ovOpen();m.hidden=false;m._d=[F.doc,await pdfjsLib.getDocument({data:await b.arrayBuffer()}).promise];m._i=1;cmpDraw()}
+async function cmpDraw(){const m=$('#cm'),i=m._i;if(i<1||i>m._d[0].numPages||i>m._d[1].numPages)return m._i=Math.max(1,Math.min(i,m._d[0].numPages));
+ $('#ct').textContent=`Página ${i} de ${m._d[0].numPages}`;for(const j of[0,1]){const p=await m._d[j].getPage(i),c=$('#c'+j),v=p.getViewport({scale:1});c.width=v.width;c.height=v.height;await p.render({canvasContext:c.getContext('2d'),viewport:v}).promise}}
+$('#cx').onclick=()=>{$('#cm').hidden=true;ovClosed()};$('#cp').onclick=()=>{$('#cm')._i--;cmpDraw()};$('#cn').onclick=()=>{$('#cm')._i++;cmpDraw()};
+
+/* ---------- Análisis de maquetación (texto, tablas, columnas, imágenes) ---------- */
+/*PURE-START*/
+const LN=(y,h,c)=>({y,h,c,x0:c[0].x,x1:c.at(-1).x+c.at(-1).w,t:c.map(k=>k.t).join(' ')});
+function mkLines(items){const it=items.filter(i=>i.str.trim()).map(i=>({s:i.str,x:i.transform[4],y:i.transform[5],w:i.width,h:Math.abs(i.transform[3])||i.height||10})),G=[];
+ for(const i of it.sort((a,b)=>b.y-a.y)){const g=G.find(g=>Math.abs(g.y-i.y)<Math.max(2,i.h*.35));g?g.it.push(i):G.push({y:i.y,it:[i]})}
+ return G.sort((a,b)=>b.y-a.y).map(g=>{const s=g.it.sort((a,b)=>a.x-b.x),h=Math.max(...s.map(i=>i.h)),c=[];
+  for(const i of s){const k=c.at(-1);if(k&&i.x-(k.x+k.w)<=h*.9){k.t+=(i.x-(k.x+k.w)>h*.15?' ':'')+i.s;k.w=i.x+i.w-k.x}else c.push({x:i.x,w:i.w,t:i.s})}
+  c.forEach(k=>k.t=k.t.trim());return LN(g.y,h,c)})}
+function twoCol(L,W){const m=L.filter(l=>l.c.length>1);
+ if(L.length<8||m.length<L.length*.6||m.some(l=>l.c.length!=2||l.c[0].x+l.c[0].w>W*.55||l.c[1].x<W*.45||l.c[0].w<W*.25||l.c[1].w<W*.25))return null;
+ const a=[],b=[];for(const l of L){if(l.c.length==2){a.push(LN(l.y,l.h,[l.c[0]]));b.push(LN(l.y,l.h,[l.c[1]]))}else(l.x0<W*.5?a:b).push(l)}return[a,b]}
+function blk(L){const B=[];let run=[];
+ const flush=()=>{if(run.length>=3){const an=[];run.forEach(l=>l.c.forEach(c=>{if(!an.some(a=>Math.abs(a-c.x)<8))an.push(c.x)}));an.sort((a,b)=>a-b);
+   if(an.length>=2&&an.length<=run.reduce((m,l)=>Math.max(m,l.c.length),0)+3){
+    B.push({k:'t',y:run[0].y,an,x1:Math.max(...run.map(l=>l.x1)),rows:run.map(l=>{const r=Array(an.length).fill('');l.c.forEach(c=>{let j=an.length-1;while(j>0&&an[j]>c.x+8)j--;r[j]=(r[j]?r[j]+' ':'')+c.t});return r})});run=[];return}}
+  run.forEach(l=>B.push({k:'p',l,y:l.y}));run=[]};
+ for(const l of L){if(l.c.length>=2&&(!run.length||run.at(-1).y-l.y<l.h*3))run.push(l);else{flush();l.c.length>=2?run.push(l):B.push({k:'p',l,y:l.y})}}
+ flush();return B}
+function cell(s){s=s.trim();let m;
+ if(m=s.match(/^(-?\d+(?:[.,]\d+)?)\s*%$/))return{t:'n',v:parseFloat(m[1].replace(',','.'))/100,z:'0.0%'};
+ if(m=s.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/)){const d=new Date(Date.UTC(+m[3],+m[2]-1,+m[1]));if(d.getUTCDate()==+m[1])return{t:'d',v:d,z:'dd/mm/yyyy'}}
+ if(m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/)){const d=new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));if(d.getUTCDate()==+m[3])return{t:'d',v:d,z:'dd/mm/yyyy'}}
+ const n=s.replace(/[€$£\s]/g,'');
+ if(/^[-+]?\d+([.,]\d+)?$/.test(n)||/^[-+]?\d{1,3}([.,]\d{3})+([.,]\d+)?$/.test(n)){if(/^[-+]?0\d/.test(n))return{t:'s',v:s};let r;
+  if(n.includes(',')&&n.includes('.'))r=n.lastIndexOf(',')>n.lastIndexOf('.')?n.replace(/\./g,'').replace(',','.'):n.replace(/,/g,'');
+  else if(n.includes(','))r=n.replace(',','.');else if(/^[-+]?\d{1,3}(\.\d{3})+$/.test(n))r=n.replace(/\./g,'');else r=n;
+  const v=parseFloat(r);if(isFinite(v))return{t:'n',v}}
+ return{t:'s',v:s}}
+/*PURE-END*/
+const pageCv=async(p,sc)=>{const v=p.getViewport({scale:sc}),c=H('canvas');c.width=v.width;c.height=v.height;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);await p.render({canvasContext:x,viewport:v}).promise;return c};
+async function pinfo(F,i){const p=await F.doc.getPage(i),[a,b,c,d]=p.view,L=mkLines((await p.getTextContent()).items);return{p,W:c-a,H:d-b,L,chars:L.reduce((s,l)=>s+l.t.length,0)}}
+function imgCanvas(im){if(!im)return null;const c=H('canvas');c.width=im.width;c.height=im.height;const x=c.getContext('2d');
+ if(im.bitmap){x.drawImage(im.bitmap,0,0);return c}
+ if(!im.data)return null;const d=im.data,id=x.createImageData(im.width,im.height),n=im.width*im.height;
+ if(im.kind==2)for(let i=0,j=0;i<n;i++,j+=3){id.data[i*4]=d[j];id.data[i*4+1]=d[j+1];id.data[i*4+2]=d[j+2];id.data[i*4+3]=255}
+ else if(im.kind==3)id.data.set(d.subarray(0,n*4));
+ else if(im.kind==1){const rb=(im.width+7)>>3;for(let y=0;y<im.height;y++)for(let u=0;u<im.width;u++){const v=(d[y*rb+(u>>3)]>>(7-(u&7)))&1?255:0,k=(y*im.width+u)*4;id.data[k]=id.data[k+1]=id.data[k+2]=v;id.data[k+3]=255}}
+ else return null;x.putImageData(id,0,0);return c}
+async function pageImgs(p){const ol=await p.getOperatorList(),OP=pdfjsLib.OPS,out=[],st=[];let m=[1,0,0,1,0,0];
+ for(let i=0;i<ol.fnArray.length;i++){const f=ol.fnArray[i],a=ol.argsArray[i];
+  if(f==OP.save)st.push(m);else if(f==OP.restore)m=st.pop()||m;else if(f==OP.transform)m=pdfjsLib.Util.transform(m,a);
+  else if(f==OP.paintImageXObject||f==OP.paintInlineImageXObject){const w=Math.hypot(m[0],m[1]),h=Math.hypot(m[2],m[3]);if(w<20||h<20)continue;
+   let im=a[0];if(typeof im=='string'){const id=im,sto=id.startsWith('g_')?p.commonObjs:p.objs;im=await Promise.race([new Promise(r=>sto.get(id,r)),new Promise(r=>setTimeout(()=>r(null),4000))])}
+   const c=imgCanvas(im);if(c)out.push({x:m[4],y:m[5]+h,w,h,c})}}
+ return out}
+
+/* ---------- PDF → DOCX (OOXML generado a mano con JSZip) ---------- */
+const ex=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,''),tw=n=>Math.round(n*20);
+let BODY=11,NT=0;const WNS='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"',XH='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>',RT='http://schemas.openxmlformats.org/officeDocument/2006/relationships/';
+const imgX=(id,w,h)=>`<w:p><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${Math.round(w*12700)}" cy="${Math.round(h*12700)}"/><wp:docPr id="${id}" name="Imagen ${id}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="i${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="rId${id}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${Math.round(w*12700)}" cy="${Math.round(h*12700)}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+const para=c=>{const lv=c.n<=2&&c.t.length<130?(c.h>=BODY*1.6?1:c.h>=BODY*1.35?2:c.h>=BODY*1.15?3:0):0;
+ return `<w:p><w:pPr>${lv?`<w:pStyle w:val="Heading${lv}"/>`:''}</w:pPr><w:r>${lv?'':`<w:rPr><w:sz w:val="${Math.min(72,Math.max(14,Math.round(c.h*2)))}"/></w:rPr>`}<w:t xml:space="preserve">${ex(c.t)}</w:t></w:r></w:p>`};
+const tbl=b=>{NT++;const ws=b.an.map((a,j)=>tw(Math.max(20,(b.an[j+1]??b.x1)-a)));
+ return `<w:tbl><w:tblPr><w:tblW w:w="0" w:type="auto"/><w:tblBorders>${['top','left','bottom','right','insideH','insideV'].map(s=>`<w:${s} w:val="single" w:sz="4" w:space="0" w:color="999999"/>`).join('')}</w:tblBorders></w:tblPr><w:tblGrid>${ws.map(w=>`<w:gridCol w:w="${w}"/>`).join('')}</w:tblGrid>${b.rows.map(r=>`<w:tr>${r.map((c,j)=>`<w:tc><w:tcPr><w:tcW w:w="${ws[j]}" w:type="dxa"/></w:tcPr><w:p><w:r><w:t xml:space="preserve">${ex(c)}</w:t></w:r></w:p></w:tc>`).join('')}</w:tr>`).join('')}</w:tbl>`};
+function emitSet(B){let o='',cur=null;const fl=()=>{if(cur){o+=para(cur);cur=null}};
+ for(const b of B.sort((a,c)=>c.y-a.y)){
+  if(b.k=='p'){const l=b.l;if(cur&&cur.last-l.y<l.h*1.7&&Math.abs(cur.h-l.h)<1.5){cur.t+=' '+l.t;cur.last=l.y;cur.n++}else{fl();cur={t:l.t,h:l.h,last:l.y,n:1}}}
+  else{fl();o+=b.k=='t'?tbl(b):b.x}}
+ fl();return o+(B.some(b=>b.k=='t')&&B.sort((a,c)=>c.y-a.y).at(-1).k=='t'?'<w:p/>':'')}
+X.pdf2docx=async()=>{const F=S.files[0],idx=sel(F),wi=$('#o_i').checked,asImg=$('#o_sc').checked,P=[];
+ for(let x=0;x<idx.length;x++){P.push(await pinfo(F,idx[x]+1));prog(x/idx.length*.4,`Analizando página ${x+1} de ${idx.length}…`);await tick()}
+ const scn=P.filter(q=>q.chars<15).length>P.length*.6;
+ if(scn&&!asImg)throw new Error('Este PDF parece escaneado: no tiene texto seleccionable. Un DOCX editable necesitaría OCR, que no está disponible en esta versión. Puedes marcar «insertar las páginas como imágenes», pero el Word resultante NO será editable.');
+ let hd='',ft='';const cnt={},nk=l=>l.t.replace(/\d+/g,'#');
+ if(P.length>=3){P.forEach(q=>new Set(q.L.filter(l=>l.y>q.H*.93||l.y<q.H*.07).map(nk)).forEach(k=>cnt[k]=(cnt[k]||0)+1));
+  const rep=l=>cnt[nk(l)]>=Math.max(2,P.length*.5);
+  P.forEach(q=>{const t=q.L.filter(l=>l.y>q.H*.93&&rep(l)),b=q.L.filter(l=>l.y<q.H*.07&&rep(l));if(!hd&&t.length)hd=t.map(l=>l.t).join(' ');if(!ft&&b.length)ft=b.map(l=>l.t).join(' ');q.L=q.L.filter(l=>!t.includes(l)&&!b.includes(l))})}
+ const hs={};P.forEach(q=>q.L.forEach(l=>{const k=Math.round(l.h);hs[k]=(hs[k]||0)+l.t.length}));BODY=+(Object.entries(hs).sort((a,b)=>b[1]-a[1])[0]||[11])[0];NT=0;
+ const z=new JSZip(),rel=[],hr=(hd?'<w:headerReference w:type="default" r:id="rId2"/>':'')+(ft?'<w:footerReference w:type="default" r:id="rId3"/>':'');let rid=10,ni=0,nc=0,body='';
+ const addImg=async c=>{const id=++rid;z.file(`word/media/i${id}.png`,await cvBlob(c,'image/png'));rel.push(id);ni++;return id};
+ for(let x=0;x<P.length;x++){const q=P[x];let sets;
+  if(scn&&q.chars<15){const c=await pageCv(q.p,1.6),w=q.W-72,id=await addImg(c);sets=[[{k:'i',y:q.H,x:imgX(id,w,w*c.height/c.width)}]];q.m={t:36,b:36,l:36,r:36}}
+  else{const tc=twoCol(q.L,q.W);sets=(tc||[q.L]).map(blk);if(tc)nc++;
+   if(wi)for(const im of await pageImgs(q.p)){const k=Math.min(1,((tc?q.W/2:q.W)-72)/im.w),id=await addImg(im.c);sets[tc&&im.x+im.w/2>q.W/2?1:0].push({k:'i',y:im.y,x:imgX(id,im.w*k,im.h*k)})}
+   const L=q.L,cl=v=>Math.max(28,Math.min(180,v));
+   q.m=L.length?{l:cl(Math.min(...L.map(l=>l.x0))),r:cl(q.W-Math.max(...L.map(l=>l.x1))),t:Math.max(cl(q.H-L[0].y-L[0].h),hd?54:0),b:Math.max(cl(Math.min(...L.map(l=>l.y))),ft?54:0)}:{t:56,b:56,l:56,r:56}}
+  body+=sets.map((B,j)=>emitSet(B)+(j<sets.length-1?'<w:p><w:r><w:br w:type="column"/></w:r></w:p>':'')).join('');
+  const sp=`<w:sectPr>${hr}<w:pgSz w:w="${tw(q.W)}" w:h="${tw(q.H)}"${q.W>q.H?' w:orient="landscape"':''}/><w:pgMar w:top="${tw(q.m.t)}" w:right="${tw(q.m.r)}" w:bottom="${tw(q.m.b)}" w:left="${tw(q.m.l)}" w:header="360" w:footer="360" w:gutter="0"/>${sets.length>1?'<w:cols w:num="2" w:space="720"/>':''}</w:sectPr>`;
+  body+=x<P.length-1?`<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/></w:rPr>${sp}</w:pPr></w:p>`:sp;
+  prog(.4+.5*(x+1)/P.length,`Generando página ${x+1} de ${P.length}…`);await tick()}
+ const RN=`xmlns:r="${RT.slice(0,-1)}"`,fld='<w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGE </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1</w:t></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r>';
+ const run1=t=>`<w:r><w:t xml:space="preserve">${ex(t)}</w:t></w:r>`,fp=ft.split(/\d+/).map(run1);
+ z.file('[Content_Types].xml',`${XH}<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>${hd?'<Override PartName="/word/header1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>':''}${ft?'<Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>':''}</Types>`);
+ z.file('_rels/.rels',`${XH}<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="${RT}officeDocument" Target="word/document.xml"/></Relationships>`);
+ z.file('word/_rels/document.xml.rels',`${XH}<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="${RT}styles" Target="styles.xml"/>${hd?`<Relationship Id="rId2" Type="${RT}header" Target="header1.xml"/>`:''}${ft?`<Relationship Id="rId3" Type="${RT}footer" Target="footer1.xml"/>`:''}${rel.map(id=>`<Relationship Id="rId${id}" Type="${RT}image" Target="media/i${id}.png"/>`).join('')}</Relationships>`);
+ z.file('word/styles.xml',`${XH}<w:styles ${WNS}><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:rPr><w:sz w:val="${Math.round(BODY*2)}"/></w:rPr></w:style>${[1,2,3].map(n=>`<w:style w:type="paragraph" w:styleId="Heading${n}"><w:name w:val="heading ${n}"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:keepNext/><w:spacing w:before="240" w:after="80"/><w:outlineLvl w:val="${n-1}"/></w:pPr><w:rPr><w:b/><w:sz w:val="${[40,32,26][n-1]}"/></w:rPr></w:style>`).join('')}</w:styles>`);
+ if(hd)z.file('word/header1.xml',`${XH}<w:hdr ${WNS}><w:p>${run1(hd)}</w:p></w:hdr>`);
+ if(ft)z.file('word/footer1.xml',`${XH}<w:ftr ${WNS}><w:p>${/\d/.test(ft)?fp.join(fld):run1(ft)}</w:p></w:ftr>`);
+ z.file('word/document.xml',`${XH}<w:document ${WNS} ${RN} xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}</w:body></w:document>`);
+ const blob=await z.generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+ setRes([{name:base(F.name)+'.docx',blob,note:`${P.length} pág. · ${NT} tablas · ${ni} imágenes · ${nc} pág. a 2 columnas${hd?' · encabezado':''}${ft?' · pie':''}${scn?' · páginas como imagen (NO editable)':''} · revisa el resultado: las maquetaciones complejas pueden variar`}])};
+
+/* ---------- PDF → XLSX ---------- */
+X.pdf2xlsx=async()=>{const XLSX=await XL(),F=S.files[0],idx=sel(F),wb=XLSX.utils.book_new(),tx=[];let nt=0,np=0;
+ for(let x=0;x<idx.length;x++){const q=await pinfo(F,idx[x]+1),n=idx[x]+1;prog((x+1)/idx.length,`Página ${x+1} de ${idx.length}…`);
+  if(q.chars<15)continue;np++;tx.push([n,q.L]);
+  blk(q.L).filter(b=>b.k=='t').forEach((b,k)=>{const ws=XLSX.utils.aoa_to_sheet(b.rows.map(r=>r.map(cell)),{cellDates:true});
+   ws['!cols']=b.an.map((a,j)=>({wch:Math.min(60,Math.max(8,...b.rows.map(r=>r[j].length))+2)}));ws['!autofilter']={ref:ws['!ref']};
+   XLSX.utils.book_append_sheet(wb,ws,`P${n}_T${k+1}`);nt++});await tick()}
+ if(!np)throw new Error('Este PDF parece escaneado (sin texto). Extraer tablas de imágenes requiere OCR, que no está disponible en esta versión.');
+ let nota=`${nt} tabla(s) en ${wb.SheetNames.length} hoja(s) · primera fila = encabezado (con filtro) · revisa celdas combinadas o tablas sin bordes`;
+ if(!nt){tx.forEach(([n,L])=>XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(L.map(l=>[l.t])),`P${n}_texto`));nota='No se detectaron tablas: se volcó el texto línea a línea (una hoja por página).'}
+ setRes([{name:base(F.name)+'.xlsx',blob:new Blob([XLSX.write(wb,{bookType:'xlsx',type:'array',cellDates:true})],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),note:nota}])};
+
+/* ---------- XLSX/XLS/CSV → PDF ---------- */
+X.xlsx2pdf=async()=>{const XLSX=await XL(),F=S.files[0],wb=XLSX.read(F.bytes,{type:'array',cellDates:true}),d=await D.create(),ft=await d.embedFont(SF.Helvetica),fb=await d.embedFont(SF.HelveticaBold);
+ const fs0=+$('#o_z').value||9,or=$('#o_or').value,fit=$('#o_fit').checked,ar=$('#o_ar').value.trim().toUpperCase(),mg=30;let np=0,ns=0;
+ for(const sn of wb.SheetNames){const ws=wb.Sheets[sn];let rg;
+  try{rg=ar?XLSX.utils.decode_range(ar):ws['!ref']&&XLSX.utils.decode_range(ws['!ref'])}catch(e){throw new Error('Área de impresión no válida. Ejemplo: A1:F40')}
+  if(!rg)continue;const rows=[];
+  for(let r=rg.s.r;r<=rg.e.r;r++){const row=[];for(let c=rg.s.c;c<=rg.e.c;c++){const cl=ws[XLSX.utils.encode_cell({r,c})];row.push(cl?clean(XLSX.utils.format_cell(cl)):'')}rows.push(row)}
+  const nc=rows[0].length;let ws_=[...Array(nc)].map((_,j)=>Math.min(260,Math.max(18,...rows.map(r=>ft.widthOfTextAtSize(r[j],fs0)+8)))),tot=ws_.reduce((a,b)=>a+b,0);
+  const land=or=='h'||(or=='a'&&tot>595-2*mg),PW=land?842:595,PH=land?595:842,av=PW-2*mg,k=fit&&tot>av?Math.max(av/tot,.55):1,fs=fs0*k;ws_=ws_.map(w=>w*k);
+  const chunks=[];let cur=[],cs=0;ws_.forEach((w,j)=>{if(cur.length&&cs+w>av){chunks.push(cur);cur=[];cs=0}cur.push(j);cs+=w});chunks.push(cur);
+  const rh=fs*1.7;ns++;
+  for(const ch of chunks){let pg=null,y=0;
+   rows.forEach((r,ri)=>{if(!pg||y-rh<mg){pg=d.addPage([PW,PH]);np++;y=PH-mg;pg.drawText(clean(sn)+(chunks.length>1?` (columnas ${ch[0]+1}-${ch.at(-1)+1})`:''),{x:mg,y:y-8,size:8,font:fb,color:rgb(.4,.4,.4)});y-=16}
+    let x=mg;for(const j of ch){const w=ws_[j];let t=r[j];
+     pg.drawRectangle({x,y:y-rh,width:w,height:rh,borderColor:rgb(.75,.75,.75),borderWidth:.5,...(ri==0?{color:rgb(.93,.94,.97)}:{})});
+     const f=ri==0?fb:ft;let cut=false;while(t.length>1&&f.widthOfTextAtSize(t,fs)>w-5){t=t.slice(0,-1);cut=true}if(cut)t+='…';
+     const tw_=f.widthOfTextAtSize(t,fs);pg.drawText(t,{x:/^[-+\d.,%€$\s]+$/.test(t)&&ri>0?x+w-tw_-3:x+3,y:y-rh+fs*.45,size:fs,font:f});x+=w}
+    y-=rh});prog(.5)}
+  await tick()}
+ if(!np)throw new Error('El archivo no contiene datos para imprimir.');
+ setRes([{name:base(F.name)+'.pdf',blob:pdfBlob(await d.save()),note:`${ns} hoja(s) · ${np} página(s) · solo valores y rejilla (sin colores, gráficos ni imágenes de Excel)`}])};
+
+/* ---------- DOCX → PDF (mammoth + impresión del navegador) ---------- */
+X.docx2pdf=async()=>{const m=await MM(),F=S.files[0],r=await m.convertToHtml({arrayBuffer:F.bytes});
+ const fr=H('iframe',{style:'position:fixed;width:0;height:0;border:0'});document.body.append(fr);const dd=fr.contentDocument;dd.open();
+ dd.write(`<!doctype html><meta charset="utf-8"><title>${ex(base(F.name))}</title><style>body{font:11pt Calibri,Arial,sans-serif;margin:0}img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #999;padding:3px 6px}@page{margin:2cm}</style>`+r.value);dd.close();
+ await new Promise(ok=>setTimeout(ok,600));fr.contentWindow.focus();fr.contentWindow.print();setTimeout(()=>fr.remove(),120000);
+ $('#st').textContent='Se abrió el diálogo de impresión: elige «Guardar como PDF».'+(r.messages.length?` (${r.messages.length} avisos de formato ignorado)`:'')};
+
+/* ---------- PDF → PPTX (PptxGenJS) ---------- */
+X.pdf2pptx=async()=>{const PG=await PX(),F=S.files[0],idx=sel(F),ed=$('#o_m').value=='e',I=v=>v/72;let p,nt=0,ni=0,nf=0;
+ for(let x=0;x<idx.length;x++){const q=await pinfo(F,idx[x]+1);
+  if(!p){p=new PG();p.defineLayout({name:'PDF',width:I(q.W),height:I(q.H)});p.layout='PDF'}
+  const s=p.addSlide();
+  if(!ed||q.chars<15){s.addImage({data:(await pageCv(q.p,2)).toDataURL('image/jpeg',.85).slice(5),x:0,y:0,w:I(q.W),h:I(q.H)});if(ed)nf++}
+  else{for(const im of await pageImgs(q.p)){s.addImage({data:im.c.toDataURL('image/png').slice(5),x:I(im.x),y:I(q.H-im.y),w:I(im.w),h:I(im.h)});ni++}
+   q.L.forEach(l=>l.c.forEach(c=>{s.addText(c.t,{x:I(c.x),y:I(q.H-l.y-l.h*.95),w:I(c.w+10),h:I(l.h*1.3),fontSize:Math.max(6,Math.round(l.h)),margin:0,valign:'top',wrap:false});nt++}))}
+  prog((x+1)/idx.length,`Diapositiva ${x+1} de ${idx.length}…`);await tick()}
+ const b=new Blob([await p.write({outputType:'blob'})],{type:'application/vnd.openxmlformats-officedocument.presentationml.presentation'});
+ setRes([{name:base(F.name)+'.pptx',blob:b,note:ed?`${idx.length} diapositivas · ${nt} textos editables · ${ni} imágenes${nf?` · ${nf} página(s) sin texto como imagen (NO editables)`:''} · los gráficos vectoriales y fondos no se conservan`:`${idx.length} diapositivas como imagen (NO editables)`}])};
+
+
+const U8=(...a)=>{const o=new Uint8Array(a.reduce((s,x)=>s+x.length,0));let p=0;for(const x of a){o.set(x,p);p+=x.length}return o};
+const rnd=n=>crypto.getRandomValues(new Uint8Array(n)),hx=b=>[...b].map(x=>x.toString(16).padStart(2,'0')).join('');
+const sha=async(n,d)=>new Uint8Array(await crypto.subtle.digest('SHA-'+n,d));
+const aesKey=k=>crypto.subtle.importKey('raw',k,'AES-CBC',false,['encrypt','decrypt']);
+/* AES-CBC sin relleno: WebCrypto siempre añade un bloque final de PKCS7, que se descarta */
+const cbc0=async(key,iv,data)=>new Uint8Array(await crypto.subtle.encrypt({name:'AES-CBC',iv},await aesKey(key),data)).slice(0,data.length);
+const aesObj=async(key,data)=>{const iv=rnd(16);return U8(iv,new Uint8Array(await crypto.subtle.encrypt({name:'AES-CBC',iv},await aesKey(key),data)))};
+/* Algoritmo 2.B de ISO 32000-2 (PDF 2.0, revisión 6) */
+async function hash2B(pw,salt,u){let k=await sha(256,U8(pw,salt,u)),i=0;
+ for(;;){i++;const k1=U8(pw,k,u),r=new Uint8Array(k1.length*64);for(let j=0;j<64;j++)r.set(k1,j*k1.length);
+  const e=await cbc0(k.slice(0,16),k.slice(16,32),r);let s=0;for(let j=0;j<16;j++)s+=e[j];
+  k=await sha([256,384,512][s%3],e);if(i>=64&&e[e.length-1]<=i-32)break}
+ return k.slice(0,32)}
+/* Cifra un PDF con AES-256 (AESV3, R6). perm={print,copy,modify} (true = permitido). */
+async function encryptPdf(bytes,pu,po,perm){
+ if(!globalThis.crypto||!crypto.subtle)throw new Error('Este navegador no ofrece cifrado (Web Crypto). Abre la aplicación en Chrome, Edge o Firefox actualizados.');
+ const {PDFRawStream,PDFStream,PDFString,PDFHexString,PDFDict,PDFArray}=PDFLib,te=new TextEncoder(),E=new Uint8Array(0),Z=new Uint8Array(16);
+ const upw=te.encode(pu).slice(0,127),opw=te.encode(po).slice(0,127),fk=rnd(32),vs=rnd(8),ks=rnd(8),vs2=rnd(8),ks2=rnd(8);
+ const U=U8(await hash2B(upw,vs,E),vs,ks),UE=await cbc0(await hash2B(upw,ks,E),Z,fk);
+ const O=U8(await hash2B(opw,vs2,U),vs2,ks2),OE=await cbc0(await hash2B(opw,ks2,U),Z,fk);
+ const P=(0xFFFFF0C0|512|(perm.print?4+2048:0)|(perm.modify?8+32+256+1024:0)|(perm.copy?16:0))|0;
+ const pb=new Uint8Array(16);new DataView(pb.buffer).setInt32(0,P,true);pb.fill(255,4,8);pb.set([84,97,100,98],8);pb.set(rnd(4),12);
+ const Perms=await cbc0(fk,Z,pb);
+ const d=await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true,updateMetadata:false}),cx=d.context;
+ const es=async s=>PDFHexString.of(hx(await aesObj(fk,s.asBytes())));
+ const walk=async o=>{if(o instanceof PDFDict){for(const[k,v]of o.entries()){if(v instanceof PDFString||v instanceof PDFHexString)o.set(k,await es(v));else await walk(v)}}
+  else if(o instanceof PDFArray){for(let i=0;i<o.size();i++){const v=o.get(i);if(v instanceof PDFString||v instanceof PDFHexString)o.set(i,await es(v));else await walk(v)}}};
+ for(const[ref,ob]of cx.enumerateIndirectObjects()){
+  if(ob instanceof PDFRawStream){ob.contents=await aesObj(fk,ob.contents);await walk(ob.dict)}
+  else if(ob instanceof PDFStream)throw new Error('Estructura de PDF no compatible con el cifrado.');
+  else if(ob instanceof PDFString||ob instanceof PDFHexString)cx.assign(ref,await es(ob));else await walk(ob)}
+ const id=PDFHexString.of(hx(rnd(16)));cx.trailerInfo.ID=cx.obj([id,id]);
+ const H_=b=>PDFHexString.of(hx(b));
+ cx.trailerInfo.Encrypt=cx.register(cx.obj({Filter:'Standard',V:5,R:6,Length:256,CF:{StdCF:{AuthEvent:'DocOpen',CFM:'AESV3',Length:32}},StmF:'StdCF',StrF:'StdCF',O:H_(O),U:H_(U),OE:H_(OE),UE:H_(UE),P,Perms:H_(Perms),EncryptMetadata:true}));
+ return d.save({useObjectStreams:false})}
+
+
+/* ============ Proteger con contraseña (AES-256 real) ============ */
+O.protect=()=>`<label>Contraseña para abrir<input type="password" id="o_p1" autocomplete="new-password"></label><label>Confirmar contraseña<input type="password" id="o_p2" autocomplete="new-password"></label><label>Contraseña de propietario (opcional)<input type="password" id="o_po" autocomplete="new-password"></label>
+<label><span><input type="checkbox" id="o_pr" checked> Permitir imprimir</span></label><label><span><input type="checkbox" id="o_cp" checked> Permitir copiar contenido</span></label><label><span><input type="checkbox" id="o_md" checked> Permitir modificar</span></label>
+<p class="muted" style="grid-column:1/-1">Cifrado AES-256 (PDF 2.0, R6). Si no indicas contraseña de propietario se genera una aleatoria. Los permisos los respetan los lectores de PDF; la contraseña de apertura es lo que realmente protege el contenido. Si la pierdes, no hay forma de recuperarla.</p>`;
+X.protect=async()=>{const p1=$('#o_p1').value;if(!p1)throw new Error('Escribe una contraseña.');if(p1!==$('#o_p2').value)throw new Error('Las contraseñas no coinciden.');
+ const pm={print:$('#o_pr').checked,copy:$('#o_cp').checked,modify:$('#o_md').checked};let po=$('#o_po').value,gen='';if(!po){po=hx(rnd(12));gen=po}
+ if(po===p1&&!(pm.print&&pm.copy&&pm.modify))throw new Error('Para restringir permisos, la contraseña de propietario debe ser distinta de la de apertura (o déjala vacía).');
+ const r=[];
+ for(let i=0;i<S.files.length;i++){const F=S.files[i];prog(i/S.files.length,`Cifrando ${F.name}…`);
+  const b=pdfBlob(await encryptPdf(F.bytes,p1,po,pm)),buf=await b.arrayBuffer();
+  /* Verificación real: sin contraseña debe fallar; con ella debe abrirse con las mismas páginas */
+  let pedida=false;try{await pdfjsLib.getDocument({data:buf.slice(0)}).promise}catch(e){pedida=e.name=='PasswordException'}
+  if(!pedida)throw new Error('Comprobación fallida: el PDF cifrado no pidió contraseña. No se ofrece la descarga.');
+  const dd=await pdfjsLib.getDocument({data:buf.slice(0),password:p1}).promise;if(dd.numPages!=F.n)throw new Error('Comprobación fallida: el PDF cifrado no se abre correctamente.');
+  r.push({name:base(F.name)+'_protegido.pdf',blob:b,pw:p1,note:`AES-256 · comprobado: pide contraseña al abrir · imprimir ${pm.print?'sí':'no'}, copiar ${pm.copy?'sí':'no'}, modificar ${pm.modify?'sí':'no'}${gen?` · contraseña de propietario generada: ${gen} (guárdala)`:''}`})}
+ setRes(r)};
+
+/* ============ Firma con certificado (AutoFirma, PAdES) ============ */
+const AUTOSCRIPT_URL='https://cdn.jsdelivr.net/npm/@doncicuto/autoscript/autoscript.js'; // copia npm del autoscript.js oficial del CTT
+function padesCheck(u8){const s=new TextDecoder('latin1').decode(u8);if(!s.startsWith('%PDF'))return false;
+ const m=[...s.matchAll(/\/ByteRange\s*\[\s*(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s*\]/g)].pop();if(!m)return false;
+ const[a,b,c,d]=m.slice(1).map(Number),gap=s.slice(b,c);
+ return a===0&&c+d===u8.length&&gap[0]=='<'&&gap.at(-1)=='>'&&/<(?!0{16})[0-9A-Fa-f]{64,}/.test(gap)&&/\/Type\s*\/Sig/.test(s)&&/\/SubFilter\s*\/(ETSI\.CAdES\.detached|adbe\.pkcs7\.detached)/.test(s)}
+
+/* ============ Organizador: arrastre con previsualización e indicador de inserción ============ */
+document.addEventListener('touchmove',e=>{if(S.dragging)e.preventDefault()},{passive:false});
+function flip(fn){const g=$('#grid'),b={};[...g.children].forEach(k=>{if(k.dataset.id)b[k.dataset.id]=k.getBoundingClientRect()});fn();
+ [...g.children].forEach(k=>{const o=b[k.dataset.id];if(!o)return;const n=k.getBoundingClientRect(),dx=o.left-n.left,dy=o.top-n.top;
+  if(dx||dy){k.style.transition='none';k.style.transform=`translate(${dx}px,${dy}px)`;requestAnimationFrame(()=>requestAnimationFrame(()=>{k.style.transition='transform .32s cubic-bezier(.2,.8,.2,1)';k.style.transform=''}))}})}
+function dragStart(e,c,from){if(e.button>0||e.target.closest('button'))return;
+ const sx=e.clientX,sy=e.clientY,touch=e.pointerType!='mouse',g=$('#grid');let on=0,tm,gh,ind,tgt=from,last=e,sc;
+ const cards=()=>[...g.children].filter(k=>k.classList.contains('pg'));
+ const begin=()=>{on=1;S.dragging=1;const r=c.getBoundingClientRect();gh=c.cloneNode(true);gh.className='pg ghost';gh.style.cssText=`width:${r.width}px;left:${r.left}px;top:${r.top}px`;
+  document.body.append(gh);ind=H('div',{class:'ins'});g.append(ind);c.classList.add('lift');document.body.classList.add('dragging');
+  sc=setInterval(()=>{const y=last.clientY;if(y<90)scrollBy(0,-12);else if(y>innerHeight-90)scrollBy(0,12);else return;mv(last)},16)};
+ const mv=ev=>{last=ev;const d=Math.hypot(ev.clientX-sx,ev.clientY-sy);
+  if(!on){if(touch&&d>10)return end(0);if(!touch&&d>6)begin();else return}
+  gh.style.transform=`translate(${ev.clientX-sx}px,${ev.clientY-sy}px) rotate(3deg) scale(1.06)`;
+  const cs=cards().filter(k=>k!==c),gr=g.getBoundingClientRect();let best=null,bd=1e9;
+  for(const k of cs){const r=k.getBoundingClientRect(),dx=ev.clientX-(r.left+r.width/2),dy=ev.clientY-(r.top+r.height/2),dd=Math.hypot(dx,dy*1.6);if(dd<bd){bd=dd;best={k,after:dx>0,r}}}
+  if(!best){tgt=0;return}
+  tgt=cs.indexOf(best.k)+(best.after?1:0);
+  ind.style.cssText=`left:${(best.after?best.r.right:best.r.left)-gr.left-3}px;top:${best.r.top-gr.top}px;height:${best.r.height}px`};
+ const end=ok=>{clearTimeout(tm);clearInterval(sc);removeEventListener('pointermove',mv);removeEventListener('pointerup',up);removeEventListener('pointercancel',cn);
+  const was=on;gh&&gh.remove();ind&&ind.remove();c.classList.remove('lift');document.body.classList.remove('dragging');S.dragging=0;on=0;
+  if(was){S.noClick=1;setTimeout(()=>S.noClick=0,0)}
+  if(was&&ok&&tgt!=from)flip(()=>{const[m]=S.pages.splice(from,1);S.pages.splice(tgt,0,m);renderPages()})};
+ const up=()=>end(1),cn=()=>end(0);
+ addEventListener('pointermove',mv);addEventListener('pointerup',up);addEventListener('pointercancel',cn);
+ if(touch)tm=setTimeout(()=>{begin();mv(last)},260)}
+
+
+/* ============ Visor integrado de PDF generados ============ */
+const VW={};
+async function viewPdf(blob,name,page=1,pw){await wr;const m=$('#vw');if(m.hidden)ovOpen();
+ const doc=await pdfjsLib.getDocument({data:await blob.arrayBuffer(),...(pw?{password:pw}:{})}).promise;
+ Object.assign(VW,{blob,name,doc,n:Math.min(Math.max(1,page),doc.numPages),mode:'w',z:1});m.hidden=false;document.body.style.overflow='hidden';await vDraw()}
+async function vDraw(){if(!VW.doc)return;const p=await VW.doc.getPage(VW.n),b=p.getViewport({scale:1}),box=$('#vc'),aw=Math.max(100,box.clientWidth-32),ah=Math.max(100,box.clientHeight-32);
+ const s=Math.max(.2,Math.min(4,VW.mode=='w'?aw/b.width:VW.mode=='p'?Math.min(aw/b.width,ah/b.height):VW.z));VW.z=s;
+ if(VW.task)VW.task.cancel();const dpr=devicePixelRatio||1,v=p.getViewport({scale:s*dpr}),c=$('#vcv');
+ c.width=v.width;c.height=v.height;c.style.width=v.width/dpr+'px';c.style.height=v.height/dpr+'px';
+ const t=VW.task=p.render({canvasContext:c.getContext('2d'),viewport:v});
+ try{await t.promise}catch(e){if(!e||e.name!='RenderingCancelledException')throw e}
+ if(VW.doc){$('#vi').textContent=`Página ${VW.n} de ${VW.doc.numPages}`;$('#vzl').textContent=Math.round(s*100)+'%'}}
+function vClose(){if(VW.task)VW.task.cancel();const d=VW.doc;VW.doc=null;VW.blob=null;VW.task=null;if(d)d.destroy();
+ const c=$('#vcv');c.width=c.height=0;$('#vw').hidden=true;document.body.style.overflow='';ovClosed()}
+$('#vb').onclick=vClose;$('#vd').onclick=()=>VW.blob&&dl(VW.blob,VW.name);
+$('#vp').onclick=go(async()=>{if(VW.n>1){VW.n--;await vDraw()}});$('#vn').onclick=go(async()=>{if(VW.doc&&VW.n<VW.doc.numPages){VW.n++;await vDraw()}});
+$('#vzo').onclick=go(async()=>{VW.mode='z';VW.z/=1.25;await vDraw()});$('#vzi').onclick=go(async()=>{VW.mode='z';VW.z*=1.25;await vDraw()});
+$('#vfw').onclick=go(async()=>{VW.mode='w';await vDraw()});$('#vfp').onclick=go(async()=>{VW.mode='p';await vDraw()});
+addEventListener('keydown',e=>{if(!$('#vw').hidden&&e.key=='Escape')vClose()});
+addEventListener('resize',()=>{if(VW.doc&&VW.mode!='z')go(vDraw)()});
+
+/* ============ Numeración con inicio configurable ============ */
+O.num=()=>`<label>Formato ({n} = número, {t} = último número)<input id="o_f" value="Página {n} de {t}"></label>
+<label>Empezar a numerar en la página física<input id="o_fp" type="number" min="1" value="1"></label>
+<label>Número que lleva esa primera página<input id="o_n" type="number" value="1"></label>
+<label>Posición<select id="o_p"><option value="bc">Abajo centro</option><option value="br">Abajo derecha</option><option value="bl">Abajo izquierda</option><option value="tc">Arriba centro</option><option value="tr">Arriba derecha</option><option value="tl">Arriba izquierda</option></select></label>
+${tsUI('nm',{z:11})}
+<p class="muted" style="grid-column:1/-1">Ejemplo: «física 3» y «número 1» deja sin número las páginas 1 y 2, y la página 3 aparece como 1. «Vista previa» abre el resultado real en el visor antes de descargar.</p>
+<button type="button" class="btn" id="o_pv" style="grid-column:1/-1;justify-self:start">👁 Vista previa</button>`;
+async function numberBlob(F){const fm=$('#o_f').value,ps=$('#o_p').value,from=Math.max(1,Math.floor(+$('#o_fp').value||1)),n0=Math.floor(+$('#o_n').value||0),t=tsGet('nm'),col=rgb(...t.rgb);
+ const d=await D.load(F.bytes,{ignoreEncryption:true}),ft=await tsFont(d,t),pgs=d.getPages(),cnt=pgs.length-from+1;
+ if(cnt<1)throw new Error(`«${F.name}» tiene ${pgs.length} páginas: la numeración no puede empezar en la ${from}.`);
+ pgs.forEach((pg,i)=>{if(i<from-1)return;const{width:W,height:Hh}=pg.getSize(),s=clean(fm.replace(/\{n\}/g,n0+i-from+1).replace(/\{t\}/g,n0+cnt-1)),w=ft.widthOfTextAtSize(s,t.z);
+  pg.drawText(s,{x:ps[1]=='l'?36:ps[1]=='r'?W-w-36:(W-w)/2,y:ps[0]=='b'?28:Hh-28-t.z,size:t.z,font:ft,color:col})});
+ return{blob:pdfBlob(await d.save()),from}}
+X.num=async()=>{const r=[];for(const F of S.files){const{blob,from}=await numberBlob(F);r.push({name:base(F.name)+'_numerado.pdf',blob,page:from,note:`numeración desde la página ${from}`});await tick()}setRes(r)};
+const numPrev=go(async()=>{if(!S.files.length)throw new Error('Primero añade un PDF.');const{blob,from}=await numberBlob(S.files[0]);await viewPdf(blob,base(S.files[0].name)+'_numerado.pdf',from)});
+
+/* ============ Firma con certificado: colocación visual + AutoFirma (PAdES) ============ */
+const SG={};
+O.sign=()=>`<label style="grid-column:1/-1">Método de firma<select id="o_sm"><option value="d">Ordenador: AutoFirma instalado</option><option value="o">iOS / Android · Oficial: «Cliente @firma móvil» (necesita servidor intermedio)</option><option value="p">iOS / Android · Alternativa: certificado .p12 en este navegador</option></select></label>
+<div class="est" id="sm_o" hidden style="grid-column:1/-1"><p><b>Vía oficial móvil.</b> Instala <b>Cliente @firma móvil</b> (App Store / Google Play) e importa en la app tu certificado. Esta vía <b>no funciona sin servidor</b>: el PDF se deposita en los servicios intermedios de @firma (storage) y la app lo recoge (retrieve). Indica las URL de los <b>tuyos</b> (o las de tu organismo). Según la documentación oficial, las firmas hechas desde Android pueden no mostrar apariencia visible.</p>
+<div class="opts" style="margin:6px 0"><label>URL del servicio storage<input id="o_st" placeholder="https://…/afirma-signature-storage/StorageService"></label><label>URL del servicio retrieve<input id="o_rt" placeholder="https://…/afirma-signature-retriever/RetrieveService"></label></div>
+<label style="flex-direction:row;gap:8px;align-items:center"><input type="checkbox" id="o_ok"> Entiendo que el PDF se enviará a ese servidor intermedio</label></div>
+<div class="est" id="sm_p" hidden style="grid-column:1/-1"><p><b>Alternativa en el navegador.</b> Funciona en iOS y Android sin app ni servidor: eliges tu certificado exportado (.p12/.pfx) y su contraseña, y la firma PAdES se calcula <b>en este dispositivo</b>. El certificado y la contraseña no se envían ni se guardan, pero la página los maneja en memoria. Solo certificados con clave RSA, y PDF sin firmas previas.</p>
+<div class="opts" style="margin:6px 0"><label>Certificado (.p12 / .pfx)<input type="file" id="o_pf" accept=".p12,.pfx,application/x-pkcs12"></label><label>Contraseña del certificado<input type="password" id="o_pp" autocomplete="off"></label></div></div>
+<label><span><input type="checkbox" id="o_v" checked> Firma visible en el documento</span></label>
+${tsUI('sg',{z:10,nopv:1})}
+<label style="grid-column:1/-1">Texto visible (AutoFirma sustituye $$SUBJECTCN$$ por el nombre del certificado y $$SIGNDATE=…$$ por la fecha)<textarea id="o_tx" style="min-height:70px">Firmado digitalmente por $$SUBJECTCN$$
+Fecha: $$SIGNDATE=dd/MM/yyyy HH:mm$$</textarea></label>
+<label>Motivo de la firma (opcional)<input id="o_rs"></label>
+<div class="est" id="sm_d" style="grid-column:1/-1"><p><b>Cómo funciona.</b> Colocas el recuadro sobre la página y la app llama a <b>AutoFirma</b> (instalada en tu ordenador) mediante <code>afirma://</code> y un WebSocket local. AutoFirma te deja elegir el certificado y crea la firma <b>PAdES</b> con su apariencia visible dentro del propio campo de firma. El PDF no sale de tu equipo y la clave privada nunca pasa por esta página.</p>
+<p><b>Necesitas:</b> AutoFirma instalado (firmaelectronica.gob.es), un certificado instalado (DNIe, FNMT, etc.) y Chrome, Edge o Firefox. El navegador puede pedir permiso para abrir AutoFirma. AutoFirma puede ofuscar números de identificación del nombre mostrado, según su configuración.</p></div>`;
+async function signUI(){const g=$('#grid');if(!g)return;g.replaceChildren();g.classList.add('sg');const F=S.files[0];if(!F){SG.f=null;SG.place=null;return}
+ if(SG.f!==F.uid){SG.f=F.uid;SG.pg=1;SG.r=null}
+ const cv=H('canvas'),txt=H('span'),bx=H('div',{class:'sbox'},txt,H('i',{class:'sh'})),cw=H('div',{class:'sgw'},cv,bx),pgl=H('span'),warn=H('span',{class:'muted'});
+ const nav=d=>go(async()=>{SG.pg=Math.min(F.n,Math.max(1,SG.pg+d));await draw()});let sc=1;
+ g.append(H('div',{class:'bar'},H('button',{class:'btn',onclick:nav(-1)},'‹'),pgl,H('button',{class:'btn',onclick:nav(1)},'›'),warn),cw,H('p',{class:'muted'},'Arrastra el recuadro para moverlo; usa el tirador de la esquina para cambiar su tamaño. La vista del texto es orientativa: el aspecto final lo genera AutoFirma.'));
+ const place=()=>{const r=SG.r,on=$('#o_v').checked;bx.style.display=on?'':'none';{const t=tsGet('sg');Object.assign(bx.style,{fontFamily:FCSS[t.fam],fontWeight:t.b?'700':'400',fontStyle:t.i?'italic':'normal',color:t.hex})}
+  bx.style.cssText+=`;left:${r.l*sc}px;top:${r.t*sc}px;width:${r.w*sc}px;height:${r.h*sc}px;font-size:${Math.max(7,tsGet('sg').z*sc)}px`;
+  txt.textContent=$('#o_tx').value.replace(/\$\$SUBJECTCN\$\$/g,'NOMBRE APELLIDOS').replace(/\$\$SIGNDATE=[^$]*\$\$/g,new Date().toLocaleString('es-ES')).replace(/\$\$[A-Z=a-z/: ]*\$\$/g,'…')};
+ SG.place=place;
+ async function draw(){const p=await F.doc.getPage(SG.pg),b=p.getViewport({scale:1});SG.W=b.width;SG.H=b.height;sc=Math.min(1.6,Math.max(.4,(g.clientWidth-8)/b.width));
+  const v=p.getViewport({scale:sc});if(SG.task)SG.task.cancel();cv.width=v.width;cv.height=v.height;cw.style.width=v.width+'px';cw.style.height=v.height+'px';
+  const t=SG.task=p.render({canvasContext:cv.getContext('2d'),viewport:v});try{await t.promise}catch(e){if(!e||e.name!='RenderingCancelledException')throw e}
+  if(!SG.r)SG.r={l:b.width-230,t:b.height-110,w:200,h:70};const r=SG.r;r.w=Math.min(r.w,b.width);r.h=Math.min(r.h,b.height);r.l=Math.max(0,Math.min(b.width-r.w,r.l));r.t=Math.max(0,Math.min(b.height-r.h,r.t));
+  pgl.textContent=`Página ${SG.pg} de ${F.n}`;warn.textContent=p.rotate?'⚠ Esta página está rotada: AutoFirma podría colocar la firma de forma distinta.':'';place()}
+ bx.onpointerdown=e=>{const rs=e.target.classList.contains('sh'),s0={x:e.clientX,y:e.clientY,r:{...SG.r}};bx.setPointerCapture(e.pointerId);
+  const mv=ev=>{const dx=(ev.clientX-s0.x)/sc,dy=(ev.clientY-s0.y)/sc,r=SG.r;
+   if(rs){r.w=Math.max(60,Math.min(SG.W-r.l,s0.r.w+dx));r.h=Math.max(30,Math.min(SG.H-r.t,s0.r.h+dy))}else{r.l=Math.max(0,Math.min(SG.W-r.w,s0.r.l+dx));r.t=Math.max(0,Math.min(SG.H-r.t*0-r.h,s0.r.t+dy))}place()};
+  const up=()=>{bx.removeEventListener('pointermove',mv);bx.removeEventListener('pointerup',up)};bx.addEventListener('pointermove',mv);bx.addEventListener('pointerup',up);e.preventDefault()};
+ await draw()}
+X.sign=async()=>{if($('#o_sm').value=='p')return signP12();const mode=$('#o_sm').value,F=S.files[0],vis=$('#o_v').checked,r=SG.r,ep=[];
+ if(vis){if(!r)throw new Error('Espera a que se muestre la página y coloca el recuadro de firma.');const i=Math.round;
+  ep.push('signaturePage='+SG.pg,`signaturePositionOnPageLowerLeftX=${i(r.l)}`,`signaturePositionOnPageLowerLeftY=${i(SG.H-r.t-r.h)}`,`signaturePositionOnPageUpperRightX=${i(r.l+r.w)}`,`signaturePositionOnPageUpperRightY=${i(SG.H-r.t)}`,
+   'layer2Text='+$('#o_tx').value.replace(/\r?\n/g,'\\n'),...afirmaFont())}
+ const rsn=$('#o_rs').value.trim();if(rsn)ep.push('signReason='+rsn);
+ if(mode=='o'){if(!$('#o_ok').checked)throw new Error('Marca la casilla que confirma el envío del PDF al servidor intermedio.');if(!/^https:\/\//.test($('#o_st').value.trim())||!/^https:\/\//.test($('#o_rt').value.trim()))throw new Error('Indica las dos URL (https) de los servicios intermedios storage y retrieve.')}
+ const AS=await lib(AUTOSCRIPT_URL,'AutoScript');
+ if(mode=='o'){if(typeof AS.setServlets!='function')throw new Error('Esta copia de autoscript.js no admite servicios intermedios (setServlets). Usa la versión oficial del CTT.');AS.setServlets($('#o_st').value.trim(),$('#o_rt').value.trim())}
+ $('#st').textContent='Abriendo AutoFirma… permite que el navegador la abra y elige tu certificado allí.';
+ AS.cargarAppAfirma();
+ const b64=await new Promise(r=>{const f=new FileReader();f.onload=()=>r(f.result.split(',')[1]);f.readAsDataURL(new Blob([F.bytes]))});
+ const sig=await new Promise((ok,ko)=>{const to=setTimeout(()=>ko(new Error('AutoFirma no respondió en 3 minutos. ¿Está instalado y permitido en el navegador?')),180000);
+  AS.sign(b64,'SHA256withRSA','PAdES',ep.join('\n'),s=>{clearTimeout(to);ok(s)},(t,m)=>{clearTimeout(to);ko(new Error('AutoFirma: '+(m||t||'operación cancelada o fallida')))})});
+ const u8=Uint8Array.from(atob(sig.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0));
+ if(!padesCheck(u8))throw new Error('AutoFirma devolvió datos, pero no contienen una firma PAdES reconocible. No se ofrece el archivo como firmado.');
+ const o=new Uint8Array(F.bytes);let same=u8.length>o.length;for(let i=0;same&&i<o.length;i++)if(u8[i]!==o[i])same=false;
+ const s=new TextDecoder('latin1').decode(u8),wd=/\/Subtype\s*\/Widget/.test(s)&&/\/FT\s*\/Sig/.test(s);
+ setRes([{name:base(F.name)+'_firmado.pdf',blob:pdfBlob(u8),page:vis?SG.pg:1,note:['Firma PAdES incrustada detectada (estructura verificada: ByteRange y contenedor CMS)',
+  same?'contenido original intacto (actualización incremental)':'⚠ AutoFirma reescribió el documento: no se puede garantizar byte a byte que el contenido original esté intacto',
+  vis?(wd?'apariencia visible dentro del campo de firma':'⚠ no se detectó apariencia visible'):'firma invisible',
+  'la validez criptográfica y del certificado NO se comprueba aquí: valídala en Adobe Acrobat o en valide.redsara.es'].join(' · ')}])};
+
+
+/* ============ Versión (fuente única: el primer elemento del historial) ============ */
+/* Criterio: MAYOR = cambio incompatible · MENOR = herramienta o función nueva · PARCHE = corrección.
+   Al modificar el proyecto, añade una entrada AL PRINCIPIO de CHANGELOG: el pie de página y la versión interna salen de ahí. */
+const CHANGELOG=[
+ ['1.8.0','Editor PDF avanzado integrado (texto, imágenes, anotaciones, formularios, firma visual, OCR, páginas, conversión, compresión, cifrado AES-256, proyectos .pedefe e historial). pdf-lib y JSZip pasan a la carpeta vendor/ (funcionan sin conexión)'],
+ ['1.7.1','Firma: método móvil preseleccionado en iOS/Android y más visible en el buscador'],
+ ['1.7.0','Página principal en 6 categorías con accesos rápidos, historial/botón atrás, botón subir, conversor de imágenes y de audio (WAV/FLAC)'],
+ ['1.6.0','Imágenes a PDF ampliado (WEBP, BMP, GIF, TIFF, SVG, opciones de página) y OCR de imágenes'],
+ ['1.5.0','Firma en iOS/Android: vía oficial con servidor intermedio y alternativa local con .p12 (PAdES)'],
+ ['1.4.0','OCR PDF, detección de contraseñas, formato de texto, versión en el pie'],
+ ['1.3.0','Visor integrado, numeración con inicio configurable, firma visible con AutoFirma'],
+ ['1.2.0','Protección AES-256, firma con AutoFirma, rediseño y organizador con arrastre'],
+ ['1.1.0','Conversiones Office, compresión avanzada'],
+ ['1.0.0','Versión inicial']];
+const APP_VERSION=CHANGELOG[0][0];
+$('#ver').textContent='YO AMO EL PEDEFE · Versión '+APP_VERSION;
+
+/* ============ PDF protegidos: detección, ventana de contraseña y descifrado local ============ */
+function askPw(name,bad){return new Promise(res=>{const m=$('#pw'),i=$('#pwi');$('#pwn').textContent=`«${name}» está protegido con contraseña. Se abre solo en tu navegador.`;
+ $('#pwe').textContent=bad?'Contraseña incorrecta. Inténtalo de nuevo.':'';i.value='';m.hidden=false;setTimeout(()=>i.focus(),50);
+ const done=v=>{m.hidden=true;$('#pwf').onsubmit=$('#pwc').onclick=null;res(v)};
+ $('#pwf').onsubmit=e=>{e.preventDefault();done(i.value)};$('#pwc').onclick=()=>done(null)})}
+async function openPdf(bytes,name){let pw;
+ for(;;){try{return{doc:await pdfjsLib.getDocument({data:bytes.slice(0),...(pw!=null?{password:pw}:{})}).promise,pw}}
+  catch(e){if(!e||e.name!='PasswordException')throw e;const r=await askPw(name,e.code===2);
+   if(r==null){const x=new Error(`Se canceló la apertura de «${name}»: necesita una contraseña válida.`);x.cancel=1;throw x}pw=r}}}
+const cbcD0=async(key,iv,ct)=>{const k=await aesKey(key),last=ct.length?ct.slice(-16):iv,x=new Uint8Array(await crypto.subtle.encrypt({name:'AES-CBC',iv:last},k,new Uint8Array(16).fill(16))).slice(0,16);return new Uint8Array(await crypto.subtle.decrypt({name:'AES-CBC',iv},k,U8(ct,x)))};
+const eqB=(a,b)=>a.length==b.length&&a.every((v,i)=>v===b[i]);
+/* Quita el cifrado AES-256 (V5, R5/R6) para poder procesar el PDF con pdf-lib. Otros cifrados: UNSUPPORTED. */
+async function decryptPdf(bytes,pw){const{PDFRawStream,PDFStream,PDFString,PDFHexString,PDFDict,PDFArray,PDFName}=PDFLib;let d;
+ try{d=await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true,updateMetadata:false})}catch(e){throw new Error('UNSUPPORTED')}
+ const cx=d.context,eref=cx.trailerInfo.Encrypt,enc=eref&&cx.lookup(eref);if(!enc)return bytes;
+ const g=k=>enc.get(PDFName.of(k)),V=g('V')&&g('V').asNumber(),R=g('R')&&g('R').asNumber();
+ if(V!==5||(R!==5&&R!==6))throw new Error('UNSUPPORTED');
+ const pb=new TextEncoder().encode(pw).slice(0,127),E=new Uint8Array(0),Z=new Uint8Array(16),U=g('U').asBytes(),O=g('O').asBytes(),Hh=(p,s,u)=>R==6?hash2B(p,s,u):sha(256,U8(p,s,u));let fk;
+ if(eqB(await Hh(pb,U.slice(32,40),E),U.slice(0,32)))fk=await cbcD0(await Hh(pb,U.slice(40,48),E),Z,g('UE').asBytes());
+ else if(eqB(await Hh(pb,O.slice(32,40),U.slice(0,48)),O.slice(0,32)))fk=await cbcD0(await Hh(pb,O.slice(40,48),U.slice(0,48)),Z,g('OE').asBytes());
+ else throw new Error('Contraseña incorrecta');
+ const key=await aesKey(fk),dec=async b=>b.length<32?new Uint8Array(0):new Uint8Array(await crypto.subtle.decrypt({name:'AES-CBC',iv:b.slice(0,16)},key,b.slice(16)));
+ const ds=async s=>PDFHexString.of(hx(await dec(s.asBytes())));
+ const walk=async o=>{if(o instanceof PDFDict){for(const[k,v]of o.entries()){if(v instanceof PDFString||v instanceof PDFHexString)o.set(k,await ds(v));else await walk(v)}}
+  else if(o instanceof PDFArray){for(let i=0;i<o.size();i++){const v=o.get(i);if(v instanceof PDFString||v instanceof PDFHexString)o.set(i,await ds(v));else await walk(v)}}};
+ for(const[ref,ob]of cx.enumerateIndirectObjects()){if(String(ref)==String(eref))continue;
+  if(ob instanceof PDFRawStream){const t=String(ob.dict.get(PDFName.of('Type')));if(t=='/ObjStm')throw new Error('UNSUPPORTED');if(t!='/XRef'){ob.contents=await dec(ob.contents);await walk(ob.dict)}}
+  else if(ob instanceof PDFStream)throw new Error('UNSUPPORTED');else if(ob instanceof PDFString||ob instanceof PDFHexString)cx.assign(ref,await ds(ob));else await walk(ob)}
+ cx.delete(eref);cx.trailerInfo.Encrypt=undefined;return d.save({useObjectStreams:false})}
+
+/* ============ Formato de texto (familia, negrita, cursiva, tamaño, color, alineación, vista previa) ============ */
+const FM={Helvetica:['Helvetica','HelveticaBold','HelveticaOblique','HelveticaBoldOblique'],Times:['TimesRoman','TimesRomanBold','TimesRomanItalic','TimesRomanBoldItalic'],Courier:['Courier','CourierBold','CourierOblique','CourierBoldOblique']};
+const FCSS={Helvetica:'Arial,Helvetica,sans-serif',Times:'"Times New Roman",Times,serif',Courier:'"Courier New",Courier,monospace'};
+const tsUI=(id,o={})=>`<fieldset class="ts"><legend>Formato del texto</legend><select id="${id}_f" aria-label="Tipo de letra"><option value="Helvetica">Helvetica (sin serifa)</option><option value="Times">Times (serifa)</option><option value="Courier">Courier (monoespaciada)</option></select>
+<label class="ck"><input type="checkbox" id="${id}_b"${o.b?' checked':''}><b>N</b></label><label class="ck"><input type="checkbox" id="${id}_i"><i>K</i></label>
+<input id="${id}_z" type="number" min="6" max="200" value="${o.z||12}" title="Tamaño en puntos" aria-label="Tamaño"><input id="${id}_c" type="color" value="${o.c||'#1a1a1a'}" title="Color" aria-label="Color">
+${o.al?`<select id="${id}_a" aria-label="Alineación"><option value="l">Izquierda</option><option value="c">Centro</option><option value="r">Derecha</option></select>`:''}
+${o.nopv?'':`<div class="tsp" id="${id}_pv"></div>`}</fieldset>`;
+const tsGet=id=>{const c=$('#'+id+'_c').value,a=$('#'+id+'_a');return{fam:$('#'+id+'_f').value,b:$('#'+id+'_b').checked,i:$('#'+id+'_i').checked,z:+$('#'+id+'_z').value||12,hex:c,rgb:[1,3,5].map(k=>parseInt(c.slice(k,k+2),16)/255),al:a?a.value:'l'}};
+const tsFont=(d,t)=>d.embedFont(SF[FM[t.fam][(t.b?1:0)+(t.i?2:0)]]);
+function tsPv(id,text,o={}){const t=tsGet(id),e=$('#'+id+'_pv');if(!e)return;
+ Object.assign(e.style,{fontFamily:FCSS[t.fam],fontWeight:t.b?'700':'400',fontStyle:t.i?'italic':'normal',color:t.hex,fontSize:Math.min(t.z,56)+'px',textAlign:{l:'left',c:'center',r:'right'}[t.al],transform:`rotate(${-(o.rot||0)}deg)`,opacity:o.op||1,whiteSpace:'pre-wrap'});e.textContent=text}
+const PV={wm:()=>tsPv('wm',$('#o_t').value,{rot:+$('#o_a').value||0,op:+$('#o_o').value}),num:()=>tsPv('nm',$('#o_f').value.replace(/\{n\}/g,$('#o_n').value||1).replace(/\{t\}/g,'…')),
+ txt2pdf:()=>tsPv('tx',($('#o_txt').value||'Texto de ejemplo').split('\n').slice(0,3).join('\n'))};
+O.wm=()=>`<label>Texto<input id="o_t" value="CONFIDENCIAL"></label><label>Opacidad<input id="o_o" type="range" min=".05" max="1" step=".05" value=".3"></label><label>Ángulo (°)<input id="o_a" type="number" value="45"></label>${tsUI('wm',{z:60,b:1,c:'#808080'})}`;
+O.txt2pdf=()=>`${tsUI('tx',{z:11,al:1})}<textarea id="o_txt" placeholder="Escribe o pega texto, o carga un archivo .txt arriba"></textarea>`;
+X.wm=async()=>{const tx=clean($('#o_t').value).trim();if(!tx)throw new Error('Escribe el texto de la marca de agua.');
+ const t=tsGet('wm'),op=+$('#o_o').value,an=+$('#o_a').value||0,a=an*Math.PI/180,col=rgb(...t.rgb),r=[];
+ for(const F of S.files){const d=await D.load(F.bytes,{ignoreEncryption:true}),ft=await tsFont(d,t);
+  for(const pg of d.getPages()){const{width:W,height:Hh}=pg.getSize(),w=ft.widthOfTextAtSize(tx,t.z),h=t.z*.35;
+   pg.drawText(tx,{x:W/2-(w/2)*Math.cos(a)+h*Math.sin(a),y:Hh/2-(w/2)*Math.sin(a)-h*Math.cos(a),size:t.z,font:ft,color:col,opacity:op,rotate:degrees(an)})}
+  r.push({name:base(F.name)+'_marca.pdf',blob:pdfBlob(await d.save())});await tick()}setRes(r)};
+X.txt2pdf=async()=>{const raw=clean($('#o_txt').value);if(!raw.trim())throw new Error('Escribe o carga algún texto.');
+ const t=tsGet('tx'),d=await D.create(),ft=await tsFont(d,t),W=595,Hh=842,mg=50,lh=t.z*1.35,col=rgb(...t.rgb);let pg=d.addPage([W,Hh]),y=Hh-mg;
+ for(const ln of raw.split('\n')){let cur='';const L=[];for(const w of ln.split(' ')){const tr=cur?cur+' '+w:w;if(ft.widthOfTextAtSize(tr,t.z)>W-2*mg&&cur){L.push(cur);cur=w}else cur=tr}L.push(cur);
+  for(const l of L){if(y<mg+lh){pg=d.addPage([W,Hh]);y=Hh-mg}const w=ft.widthOfTextAtSize(l,t.z);pg.drawText(l,{x:t.al=='c'?(W-w)/2:t.al=='r'?W-mg-w:mg,y:y-t.z,size:t.z,font:ft,color:col});y-=lh}}
+ setRes([{name:(S.files[0]?base(S.files[0].name):'texto')+'.pdf',blob:pdfBlob(await d.save())}])};
+const ACOL={black:[0,0,0],white:[255,255,255],lightGray:[192,192,192],gray:[128,128,128],darkGray:[64,64,64],red:[255,0,0],pink:[255,175,175],yellow:[255,255,0],green:[0,255,0],orange:[255,200,0],blue:[0,0,255],cyan:[0,255,255],magenta:[255,0,255]};
+const afirmaFont=()=>{const t=tsGet('sg'),c=t.rgb.map(v=>v*255),n=Object.entries(ACOL).sort((a,b)=>a[1].reduce((s,v,i)=>s+(v-c[i])**2,0)-b[1].reduce((s,v,i)=>s+(v-c[i])**2,0))[0][0];
+ return['layer2FontSize='+t.z,'layer2FontFamily='+{Courier:0,Helvetica:1,Times:2}[t.fam],'layer2FontStyle='+((t.b?1:0)+(t.i?2:0)),'layer2FontColor='+n]};
+
+/* ============ OCR PDF (Tesseract.js, capa de texto invisible sobre el original) ============ */
+const TESS_URL='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+O.ocr=()=>`<label>Idioma de reconocimiento<select id="o_lg"><option value="spa+eng" selected>Español + inglés</option><option value="spa">Español</option><option value="eng">Inglés</option><option value="fra">Francés</option><option value="deu">Alemán</option><option value="ita">Italiano</option><option value="por">Portugués</option><option value="cat">Catalán</option></select></label>
+<label>Resolución de lectura<select id="o_dp"><option value="150">150 ppp (rápido)</option><option value="200" selected>200 ppp</option><option value="300">300 ppp (más preciso, lento)</option></select></label>
+<label><span><input type="checkbox" id="o_fo"> Forzar OCR también en páginas que ya tienen texto</span></label>
+<p class="muted" style="grid-column:1/-1">Se reconocen las páginas sin texto (escaneadas). El PDF original se conserva intacto y se le añade una capa de texto invisible, seleccionable y buscable. La primera vez se descargan el motor y el idioma (unos MB) desde un CDN público; <b>tu documento no sale del navegador</b>. Solo idiomas con alfabeto latino.</p>`;
+X.ocr=async()=>{const T=await lib(TESS_URL,'Tesseract'),F=S.files[0],lang=$('#o_lg').value,dpi=+$('#o_dp').value,force=$('#o_fo').checked,todo=[];
+ const d=await D.load(F.bytes,{ignoreEncryption:true,updateMetadata:false}),ft=await d.embedFont(SF.Helvetica),pgs=d.getPages();
+ for(let i=1;i<=F.n;i++){const tc=await(await F.doc.getPage(i)).getTextContent();if(force||tc.items.reduce((a,s)=>a+s.str.trim().length,0)<15)todo.push(i)}
+ if(!todo.length)throw new Error('No se han detectado páginas escaneadas: todas contienen texto. Marca «Forzar OCR» si quieres reconocerlas igualmente.');
+ let done=0,nw=0,conf=0,skip=0;$('#st').textContent='Preparando el motor OCR (primera vez: descarga del idioma)…';
+ const w=await T.createWorker(lang,1,{logger:m=>{if(m.status=='recognizing text')prog((done+m.progress)/todo.length,`OCR: página ${todo[Math.min(done,todo.length-1)]} (${done+1} de ${todo.length}) · ${Math.round(m.progress*100)}%`)}});
+ try{for(const i of todo){const p=await F.doc.getPage(i);if(p.rotate){skip++;done++;continue}
+   const s=dpi/72,c=await pageCv(p,s),{data}=await w.recognize(c,{},{blocks:true}),[,,,top]=p.view,[x0]=p.view,pg=pgs[i-1];
+   const words=data.words||(data.blocks||[]).flatMap(b=>b.paragraphs.flatMap(q=>q.lines.flatMap(l=>l.words)));
+   pg.pushOperators(PDFLib.pushGraphicsState(),PDFLib.setTextRenderingMode(PDFLib.TextRenderingMode.Invisible));
+   for(const wd of words){const t=clean(wd.text||'').trim();if(!t)continue;const b=wd.bbox,wp=(b.x1-b.x0)/s,hp=(b.y1-b.y0)/s,w1=ft.widthOfTextAtSize(t,1);
+    pg.drawText(t+' ',{x:b.x0/s+x0,y:top-b.y1/s+hp*.2,size:Math.max(2,Math.min(wp/w1,hp*1.1)),font:ft});nw++}
+   pg.pushOperators(PDFLib.popGraphicsState());conf+=data.confidence||0;done++;prog(done/todo.length,`Página ${i} reconocida (${done} de ${todo.length})`);c.width=c.height=0;await tick()}
+ }finally{await w.terminate()}
+ if(!nw)throw new Error('El OCR no reconoció texto en las páginas procesadas. Prueba con más resolución o con otro idioma.');
+ setRes([{name:base(F.name)+'_ocr.pdf',blob:pdfBlob(await d.save()),page:todo[0],note:`${todo.length-skip} página(s) reconocidas · ${nw} palabras · confianza media ${Math.round(conf/Math.max(1,todo.length-skip))}% · idioma ${lang}${skip?` · ${skip} omitida(s) por estar rotadas`:''} · original conservado + capa de texto invisible`}])};
+
+
+/* ============ Firma en iOS/Android ============ */
+/* Método 1 (oficial): «Cliente @firma móvil» vía servicios intermedios (storage/retrieve) del propio usuario.
+   Método 2 (alternativa): firma PAdES local con un certificado .p12/.pfx, sin servidor ni app. */
+function signMode(){const m=$('#o_sm');if(!m)return;for(const[k,id]of[['d','sm_d'],['o','sm_o'],['p','sm_p']]){const e=$('#'+id);if(e)e.hidden=m.value!=k}}
+/*SIGN-START*/
+const dl_=n=>n<128?[n]:n<256?[0x81,n]:n<65536?[0x82,n>>8,n&255]:[0x83,n>>16,(n>>8)&255,n&255];
+const der=(tag,...p)=>{const c=U8(new Uint8Array(0),...p);return U8(new Uint8Array([tag,...dl_(c.length)]),c)};
+const dSeq=(...p)=>der(0x30,...p),dSet=(...p)=>der(0x31,...p),dOct=b=>der(4,b),dCtx=(n,...p)=>der(0xA0|n,...p),dNull=der(5),dInt1=der(2,new Uint8Array([1]));
+const dOid=s=>{const a=s.split('.').map(Number),b=[a[0]*40+a[1]];for(const n of a.slice(2)){const t=[n&127];let m=n>>7;while(m){t.unshift((m&127)|128);m>>=7}b.push(...t)}return der(6,new Uint8Array(b))};
+const tlv=(u,p)=>{let l=u[p+1],h=2;if(l&128){const n=l&127;l=0;for(let i=0;i<n;i++)l=l*256+u[p+2+i];h=2+n}return{tag:u[p],s:p,b:p+h,e:p+h+l}};
+const kids=(u,n)=>{const r=[];for(let p=n.b;p<n.e;){const k=tlv(u,p);r.push(k);p=k.e}return r};
+function certInfo(c){const t=kids(c,tlv(c,0))[0],k=kids(c,t),o=k[0].tag==0xA0?1:0,cut=n=>c.slice(n.s,n.e);
+ const cn=n=>{const x=cut(n);for(let i=0;i<x.length-5;i++)if(x[i]==6&&x[i+1]==3&&x[i+2]==0x55&&x[i+3]==4&&x[i+4]==3){const v=tlv(x,i+5),b=x.slice(v.b,v.e);return v.tag==0x1E?new TextDecoder('utf-16be').decode(b):new TextDecoder().decode(b)}return''};
+ return{serial:cut(k[o]),issuer:cut(k[o+2]),cn:cn(k[o+4])||'Firmante',icn:cn(k[o+2])}}
+const cmpB=(a,b)=>{for(let i=0;i<Math.min(a.length,b.length);i++)if(a[i]!==b[i])return a[i]-b[i];return a.length-b.length};
+async function buildCms(digest,o,info,now){const sha='2.16.840.1.101.3.4.2.1',ch=new Uint8Array(await crypto.subtle.digest('SHA-256',o.certs[0])),p=n=>String(n).padStart(2,'0');
+ const ut=`${p(now.getUTCFullYear()%100)}${p(now.getUTCMonth()+1)}${p(now.getUTCDate())}${p(now.getUTCHours())}${p(now.getUTCMinutes())}${p(now.getUTCSeconds())}Z`;
+ const attrs=[['1.2.840.113549.1.9.3',dOid('1.2.840.113549.1.7.1')],['1.2.840.113549.1.9.5',der(0x17,new TextEncoder().encode(ut))],['1.2.840.113549.1.9.4',dOct(digest)],['1.2.840.113549.1.9.16.2.47',dSeq(dSeq(dSeq(dOct(ch))))]].map(([t,v])=>dSeq(dOid(t),dSet(v))).sort(cmpB);
+ let key;try{key=await crypto.subtle.importKey('pkcs8',o.pkcs8,{name:'RSASSA-PKCS1-v1_5',hash:'SHA-256'},false,['sign'])}catch(e){throw new Error('Solo se admiten certificados con clave RSA.')}
+ const sig=new Uint8Array(await crypto.subtle.sign('RSASSA-PKCS1-v1_5',key,dSet(...attrs)));
+ const si=dSeq(dInt1,dSeq(info.issuer,info.serial),dSeq(dOid(sha),dNull),dCtx(0,...attrs),dSeq(dOid('1.2.840.113549.1.1.11'),dNull),dOct(sig));
+ return dSeq(dOid('1.2.840.113549.1.7.2'),dCtx(0,dSeq(dInt1,dSet(dSeq(dOid(sha),dNull)),dSeq(dOid('1.2.840.113549.1.7.1')),dCtx(0,...o.certs),dSet(si))))}
+const fillTpl=(t,cn,icn,d)=>t.replace(/\$\$SUBJECTCN\$\$/g,cn).replace(/\$\$ISSUERCN\$\$/g,icn).replace(/\$\$SIGNDATE=([^$]*)\$\$/g,(m,f)=>{const p=n=>String(n).padStart(2,'0');return f.replace('dd',p(d.getDate())).replace('MM',p(d.getMonth()+1)).replace('yyyy',d.getFullYear()).replace('HH',p(d.getHours())).replace('mm',p(d.getMinutes())).replace('ss',p(d.getSeconds()))}).replace(/\$\$[^$]*\$\$/g,'');
+const SIGLEN=12000;
+/* Firma PAdES local (CAdES detached + signing-certificate-v2). o={certs:[DER hoja, ...cadena],pkcs8,pg,vis,rect:{l,t,w,h},H,text,ts,reason} */
+async function signLocal(bytes,o){const{PDFDocument,PDFName,PDFHexString,PDFString,PDFNumber,PDFArray,PDFDict}=PDFLib;
+ if(/\/ByteRange\s*\[/.test(new TextDecoder('latin1').decode(bytes)))throw new Error('Este PDF ya contiene firmas: reescribirlo las invalidaría. Para añadir una firma sin tocar las anteriores usa el método AutoFirma (añade la firma de forma incremental).');
+ const info=certInfo(o.certs[0]),now=new Date(),d=await PDFDocument.load(bytes,{ignoreEncryption:true,updateMetadata:false}),cx=d.context,page=d.getPage(o.pg-1),p2=n=>String(n).padStart(2,'0');
+ const sig=cx.register(cx.obj({Type:'Sig',Filter:'Adobe.PPKLite',SubFilter:'ETSI.CAdES.detached',ByteRange:[0,9999999999,9999999999,9999999999],Contents:PDFHexString.of('0'.repeat(SIGLEN*2)),
+  M:PDFString.of(`D:${now.getUTCFullYear()}${p2(now.getUTCMonth()+1)}${p2(now.getUTCDate())}${p2(now.getUTCHours())}${p2(now.getUTCMinutes())}${p2(now.getUTCSeconds())}Z`),Name:PDFHexString.fromText(info.cn),...(o.reason?{Reason:PDFHexString.fromText(o.reason)}:{})}));
+ let rect=[0,0,0,0],ap;
+ if(o.vis){const r=o.rect,t=o.ts,ft=await tsFont(d,t),z=t.z,tx=fillTpl(o.text,info.cn,info.icn,now),lines=[];
+  for(const para of tx.split('\n')){let cur='';for(const w of para.split(' ')){const tr=cur?cur+' '+w:w;if(ft.widthOfTextAtSize(clean(tr),z)>r.w-8&&cur){lines.push(cur);cur=w}else cur=tr}lines.push(cur)}
+  const esc=s=>clean(s).replace(/[\\()]/g,'\\$&'),lly=o.H-r.t-r.h;rect=[r.l,lly,r.l+r.w,lly+r.h];
+  const ct=`q 0.4 0.4 0.4 RG 0.5 w 0.25 0.25 ${r.w-.5} ${r.h-.5} re S Q BT /F1 ${z} Tf ${t.rgb.join(' ')} rg ${z*1.2} TL 4 ${r.h-4-z} Td ${lines.map(l=>`(${esc(l)}) Tj T*`).join(' ')} ET`;
+  ap=cx.register(cx.stream(Uint8Array.from(ct,c=>c.charCodeAt(0)&255),{Type:'XObject',Subtype:'Form',BBox:[0,0,r.w,r.h],Resources:{Font:{F1:ft.ref}}}))}
+ const wd=cx.register(cx.obj({Type:'Annot',Subtype:'Widget',FT:'Sig',T:PDFString.of('Firma1'),Rect:rect,F:132,P:page.ref,V:sig,...(ap?{AP:{N:ap}}:{})}));
+ page.node.addAnnot(wd);
+ let af=d.catalog.lookupMaybe(PDFName.of('AcroForm'),PDFDict);if(!af){af=cx.obj({});d.catalog.set(PDFName.of('AcroForm'),cx.register(af))}
+ let fl=af.lookupMaybe(PDFName.of('Fields'),PDFArray);if(!fl){fl=cx.obj([]);af.set(PDFName.of('Fields'),fl)}fl.push(wd);af.set(PDFName.of('SigFlags'),PDFNumber.of(3));
+ const out=new Uint8Array(await d.save({useObjectStreams:false})),s=new TextDecoder('latin1').decode(out),mc=/\/Contents\s*<(0{200,})>/.exec(s),mb=/\/ByteRange \[ 0 9999999999 9999999999 9999999999 \]/.exec(s);
+ if(!mc||!mb)throw new Error('No se pudo reservar el espacio de la firma.');
+ const cs=mc.index+mc[0].indexOf('<'),ce=cs+mc[1].length+2,pad=n=>String(n).padStart(10,'0'),br=`/ByteRange [ 0 ${pad(cs)} ${pad(ce)} ${pad(out.length-ce)} ]`;
+ if(br.length!==mb[0].length)throw new Error('ByteRange inesperado.');out.set(Uint8Array.from(br,c=>c.charCodeAt(0)),mb.index);
+ const digest=new Uint8Array(await crypto.subtle.digest('SHA-256',U8(out.subarray(0,cs),out.subarray(ce)))),cms=await buildCms(digest,o,info,now);
+ if(cms.length>SIGLEN)throw new Error('La cadena de certificados es demasiado grande para el espacio reservado.');
+ out.set(Uint8Array.from(hx(cms).toUpperCase(),c=>c.charCodeAt(0)),cs+1);return{pdf:out,info}}
+/*SIGN-END*/
+const FG=()=>lib('https://cdn.jsdelivr.net/npm/node-forge@1.3.1/dist/forge.min.js','forge');
+async function signP12(){const F=S.files[0],f=$('#o_pf').files[0],pw=$('#o_pp').value;if(!f)throw new Error('Selecciona tu certificado (.p12 o .pfx).');
+ if(!SG.r&&$('#o_v').checked)throw new Error('Espera a que se muestre la página y coloca el recuadro de firma.');
+ const forge=await FG(),by=u=>Uint8Array.from(u,c=>c.charCodeAt(0));let p12;
+ try{p12=forge.pkcs12.pkcs12FromAsn1(forge.asn1.fromDer(forge.util.binary.raw.encode(new Uint8Array(await f.arrayBuffer()))),false,pw)}catch(e){throw new Error('Contraseña del certificado incorrecta o archivo .p12/.pfx no válido.')}
+ $('#o_pp').value='';const O_=forge.pki.oids,gb=t=>p12.getBags({bagType:t})[t]||[];
+ const kb=[...gb(O_.pkcs8ShroudedKeyBag),...gb(O_.keyBag)].find(b=>b.key),cb=gb(O_.certBag).map(b=>b.cert).filter(Boolean);
+ if(!kb||!cb.length)throw new Error('El archivo no contiene una clave privada RSA y su certificado.');
+ const leaf=cb.find(c=>c.publicKey&&c.publicKey.n&&c.publicKey.n.toString(16)===kb.key.n.toString(16));if(!leaf)throw new Error('No se encontró el certificado que corresponde a la clave privada.');
+ const dr=c=>by(forge.asn1.toDer(forge.pki.certificateToAsn1(c)).getBytes());
+ $('#st').textContent='Firmando en este dispositivo…';
+ const{pdf,info}=await signLocal(new Uint8Array(F.bytes),{certs:[dr(leaf),...cb.filter(c=>c!==leaf).map(dr)],pkcs8:by(forge.asn1.toDer(forge.pki.wrapRsaPrivateKey(forge.pki.privateKeyToAsn1(kb.key))).getBytes()),
+  pg:SG.pg,vis:$('#o_v').checked,rect:SG.r,H:SG.H,text:$('#o_tx').value,ts:tsGet('sg'),reason:$('#o_rs').value.trim()});
+ if(!padesCheck(pdf))throw new Error('La firma generada no supera la comprobación de estructura. No se ofrece como firmada.');
+ setRes([{name:base(F.name)+'_firmado.pdf',blob:pdfBlob(pdf),page:$('#o_v').checked?SG.pg:1,note:`Firma PAdES (CAdES detached, SHA-256) creada en este dispositivo con el certificado de «${info.cn}» · el PDF se reescribió con pdf-lib (contenido y páginas conservados, no es una actualización incremental) · la validez del certificado NO se comprueba aquí: valídala en Adobe Acrobat o en valide.redsara.es`}])}
+
+
+/* ============ Imágenes: decodificación, Imágenes a PDF y OCR de imágenes ============ */
+/* Formatos: JPG/JPEG, PNG, WEBP, BMP, GIF (1.er fotograma) → el navegador; SVG → rasterizado; TIFF → decodificador propio
+   (sin compresión, PackBits, LZW, Deflate; 1 u 8 bits; gris, RGB, RGBA, paleta) y, si no puede, el del navegador (Safari). */
+const IMG_ACC='image/*,.jpg,.jpeg,.png,.webp,.bmp,.gif,.tif,.tiff,.svg';
+const isImgFile=f=>/^image\//.test(f.type)||/\.(jpe?g|png|webp|gif|bmp|tiff?|svg)$/i.test(f.name);
+function exifOrient(u){if(u[0]!=255||u[1]!=216)return 1;let p=2;
+ while(p+4<u.length&&u[p]==255){const m=u[p+1],l=(u[p+2]<<8)|u[p+3];
+  if(m==0xE1&&u[p+4]==69&&u[p+5]==120){const t=p+10,le=u[t]==73,r16=o=>le?u[o]|(u[o+1]<<8):(u[o]<<8)|u[o+1],r32=o=>le?(u[o]|(u[o+1]<<8)|(u[o+2]<<16)|(u[o+3]<<24)):((u[o]<<24)|(u[o+1]<<16)|(u[o+2]<<8)|u[o+3]),ifd=t+r32(t+4),n=r16(ifd);
+   for(let i=0;i<n;i++){const e=ifd+2+i*12;if(r16(e)==0x112)return r16(e+8)}return 1}
+  if(m==0xDA)break;p+=2+l}return 1}
+function jpegComps(u){let p=2;while(p+9<u.length&&u[p]==255){const m=u[p+1];if(m>=0xC0&&m<=0xCF&&m!=0xC4&&m!=0xC8&&m!=0xCC)return u[p+9];p+=2+((u[p+2]<<8)|u[p+3])}return 3}
+const packbits=(s,exp)=>{const o=new Uint8Array(exp);let i=0,j=0;while(i<s.length&&j<exp){let n=s[i++];if(n>127)n-=256;if(n>=0){for(let k=0;k<=n&&j<exp;k++)o[j++]=s[i++]}else if(n!=-128){const v=s[i++];for(let k=0;k<1-n&&j<exp;k++)o[j++]=v}}return o};
+function lzwTiff(src,exp){const out=new Uint8Array(exp),pre=new Int32Array(4096),suf=new Uint8Array(4096),len=new Uint16Array(4096);let o=0,p=0,buf=0,nb=0,cs=9,nx=258,old=-1;
+ const first=c=>{while(c>=258)c=pre[c];return c},emit=c=>{const L=c<256?1:len[c];if(o+L>exp)return;let q=o+L-1;while(c>=258){out[q--]=suf[c];c=pre[c]}out[q]=c;o+=L};
+ for(;;){while(nb<cs){if(p>=src.length)return out;buf=(buf<<8)|src[p++];nb+=8}
+  const code=(buf>>(nb-cs))&((1<<cs)-1);nb-=cs;buf&=(1<<nb)-1;
+  if(code==257)break;if(code==256){cs=9;nx=258;old=-1;continue}
+  if(old==-1){emit(code);old=code;continue}
+  len[nx]=(old<256?1:len[old])+1;pre[nx]=old;if(code<nx){suf[nx]=first(code);emit(code)}else{suf[nx]=first(old);emit(code)}
+  nx++;old=code;if(nx>=2047)cs=12;else if(nx>=1023)cs=11;else if(nx>=511)cs=10;if(nx>=4094)nx=4094}
+ return out}
+async function tiffCanvases(u){const le=u[0]==73,dv=new DataView(u.buffer,u.byteOffset,u.byteLength),g16=o=>dv.getUint16(o,le),g32=o=>dv.getUint32(o,le),out=[],tsz={1:1,2:1,3:2,4:4,5:8,6:1,7:1,8:2,9:4,10:8,11:4,12:8,16:8};
+ let ifd=g32(4);
+ while(ifd&&ifd+2<u.length&&out.length<300){const n=g16(ifd),T={};
+  for(let i=0;i<n;i++){const e=ifd+2+i*12,tag=g16(e),ty=g16(e+2),cnt=g32(e+4),vo=(tsz[ty]||1)*cnt<=4?e+8:g32(e+8),v=[];
+   for(let k=0;k<Math.min(cnt,200000);k++)v.push(ty==3?g16(vo+k*2):ty==4?g32(vo+k*4):u[vo+k]);T[tag]=v}
+  const W=T[256][0],Hh=T[257][0],bps=(T[258]||[1])[0],comp=(T[259]||[1])[0],ph=T[262][0],spp=(T[277]||[1])[0],rps=Math.min((T[278]||[Hh])[0],Hh),so=T[273],sc=T[279],pred=(T[317]||[1])[0],cm=T[320];
+  if(T[322]||T[324]||(T[284]||[1])[0]!=2&&false)throw new Error('UNSUP: TIFF por teselas');if((T[284]||[1])[0]==2)throw new Error('UNSUP: TIFF con planos separados');
+  if(![1,8].includes(bps)||![1,5,8,32946,32773].includes(comp)||![0,1,2,3].includes(ph)||(ph==3&&bps!=8)||(ph==2&&(bps!=8||spp<3)))throw new Error(`UNSUP: TIFF con compresión ${comp}, ${bps} bits o modo ${ph}`);
+  const rb=Math.ceil(W*spp*bps/8),raw=new Uint8Array(rb*Hh);
+  for(let s=0;s<so.length;s++){const rows=Math.min(rps,Hh-s*rps);if(rows<=0)break;const exp=rows*rb,sd=u.subarray(so[s],so[s]+sc[s]);let d;
+   if(comp==1)d=sd.subarray(0,exp);else if(comp==32773)d=packbits(sd,exp);else if(comp==5)d=lzwTiff(sd,exp);
+   else d=new Uint8Array(await new Response(new Blob([sd]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer());
+   raw.set(d.subarray(0,exp),s*rps*rb)}
+  if(pred==2&&bps==8)for(let r=0;r<Hh;r++)for(let i=spp;i<rb;i++)raw[r*rb+i]=(raw[r*rb+i]+raw[r*rb+i-spp])&255;
+  const cv=H('canvas');cv.width=W;cv.height=Hh;const cx=cv.getContext('2d'),im=cx.createImageData(W,Hh),px=im.data;
+  for(let y=0;y<Hh;y++)for(let x=0;x<W;x++){const k=(y*W+x)*4;let r,g,b,a=255;
+   if(bps==1){const bit=(raw[y*rb+(x>>3)]>>(7-(x&7)))&1;r=g=b=(ph==0?!bit:bit)?255:0}
+   else{const i=y*rb+x*spp;if(ph==3){const c=raw[i];r=cm[c]>>8;g=cm[256+c]>>8;b=cm[512+c]>>8}else if(ph==2){r=raw[i];g=raw[i+1];b=raw[i+2];if(spp>=4)a=raw[i+3]}else{r=g=b=ph==0?255-raw[i]:raw[i];if(spp>=2)a=raw[i+1]}}
+   px[k]=r;px[k+1]=g;px[k+2]=b;px[k+3]=a}
+  cx.putImageData(im,0,0);out.push(cv);ifd=g32(ifd+2+n*12)}
+ return out}
+async function svgCanvas(u,tr){const txt=new TextDecoder().decode(u),url=URL.createObjectURL(new Blob([u],{type:'image/svg+xml'}));
+ try{const im=new Image();im.src=url;try{await im.decode()}catch(e){throw new Error('No se pudo interpretar el SVG (¿está bien formado? No se cargan recursos externos).')}
+  let w=im.naturalWidth,h=im.naturalHeight;if(!w||!h){const m=txt.match(/viewBox\s*=\s*["']\s*[-\d.]+[ ,]+[-\d.]+[ ,]+([\d.]+)[ ,]+([\d.]+)/);w=m?+m[1]:1000;h=m?+m[2]:1000}
+  const s=Math.max(1,Math.min(4,1600/Math.max(w,h))),cv=H('canvas');cv.width=Math.round(w*s);cv.height=Math.round(h*s);const x=cv.getContext('2d');if(!tr){x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height)}x.drawImage(im,0,0,cv.width,cv.height);
+  return{cv,lw:w,lh:h}}finally{URL.revokeObjectURL(url)}}
+const bmCanvas=bm=>{const c=H('canvas');c.width=bm.width;c.height=bm.height;c.getContext('2d').drawImage(bm,0,0);return c};
+/* Devuelve [{name,w,h,lw,lh,kind,ext,u,cv?}]; w/h = píxeles ya orientados; lw/lh = tamaño lógico para la maquetación */
+async function loadImgs(f,tr){const u=new Uint8Array(f.bytes),ext=((f.name.match(/\.([^.]+)$/)||[])[1]||'').toLowerCase(),nm=base(f.name),mk=(cv,o={})=>({name:nm,w:cv.width,h:cv.height,lw:cv.width,lh:cv.height,ext,u,cv,...o});
+ if(/^tiff?$/.test(ext)||/image\/tiff/.test(f.type)||(u[0]==73&&u[1]==73&&u[2]==42&&u[3]==0)||(u[0]==77&&u[1]==77&&u[2]==0&&u[3]==42)){
+  let cvs;try{cvs=await tiffCanvases(u)}catch(e){if(!/^UNSUP/.test(e.message)&&!(e instanceof TypeError||e instanceof RangeError))throw e;
+   try{cvs=[bmCanvas(await createImageBitmap(new Blob([f.bytes],{type:'image/tiff'})))]}catch(x){throw new Error('Este TIFF usa un formato que no se puede decodificar aquí ('+e.message.replace('UNSUP: ','')+'). Conviértelo antes a PNG o JPG.')}}
+  return cvs.map((cv,i)=>mk(cv,{name:cvs.length>1?`${nm}_p${i+1}`:nm,kind:'tiff',u:null}))}
+ if(ext=='svg'||f.type=='image/svg+xml'||/^\s*(<\?xml|<svg)/.test(new TextDecoder().decode(u.subarray(0,200)))){const{cv,lw,lh}=await svgCanvas(u,tr);return[mk(cv,{lw,lh,kind:'svg',u:null})]}
+ let bm;try{bm=await createImageBitmap(new Blob([f.bytes],{type:f.type||'image/'+ext}),{imageOrientation:'from-image'})}catch(e){throw new Error('No se pudo decodificar la imagen (¿formato no compatible con este navegador o archivo dañado?).')}
+ const it={name:nm,w:bm.width,h:bm.height,lw:bm.width,lh:bm.height,ext,u,bm,kind:ext=='gif'?'gif':'img'};return[it]}
+const itCanvas=(it,scale=1)=>{const src=it.cv||it.bm,c=H('canvas');c.width=Math.round(it.w*scale);c.height=Math.round(it.h*scale);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(src,0,0,c.width,c.height);return c};
+const hasAlpha=c=>{const a=c.getContext('2d').getImageData(0,0,c.width,c.height).data;for(let i=3;i<a.length;i+=64)if(a[i]<255)return true;return false};
+async function embedItem(d,it,q){const u=it.u;
+ if(u&&u[0]==255&&u[1]==216&&exifOrient(u)==1&&jpegComps(u)!=4){try{const im=await d.embedJpg(u);it.bm&&it.bm.close();return im}catch(e){}}
+ if(u&&u[0]==0x89&&u[1]==0x50&&u[2]==0x4E){try{const im=await d.embedPng(u);it.bm&&it.bm.close();return im}catch(e){}}
+ const src=it.cv||bmCanvas(it.bm);let png=it.kind=='svg'||it.kind=='gif'||it.kind=='tiff'&&false;if(!png){png=hasAlpha(src)}
+ const blob=png?await cvBlob(src,'image/png'):await cvBlob(itCanvas({...it,cv:src,bm:null}),'image/jpeg',q);
+ it.bm&&it.bm.close();return png?d.embedPng(await blob.arrayBuffer()):d.embedJpg(await blob.arrayBuffer())}
+const PSZ={a4:[595.28,841.89],a3:[841.89,1190.55],a5:[419.53,595.28],letter:[612,792],legal:[612,1008]};
+function layout(iw,ih,o){const m=o.mm*72/25.4;
+ if(o.ps=='img'){const w=iw*.75,h=ih*.75;return{W:w+2*m,H:h+2*m,x:m,y:m,w,h,clip:0}}
+ let[W,Hh]=PSZ[o.ps];const land=o.or=='h'||(o.or=='a'&&iw>ih);[W,Hh]=land?[Math.max(W,Hh),Math.min(W,Hh)]:[Math.min(W,Hh),Math.max(W,Hh)];
+ const aw=Math.max(10,W-2*m),ah=Math.max(10,Hh-2*m);let w,h;
+ if(o.ft=='s'){w=aw;h=ah}else{const s=o.ft=='f'?Math.max(aw/iw,ah/ih):o.ft=='o'?Math.min(.75,aw/iw,ah/ih):Math.min(aw/iw,ah/ih);w=iw*s;h=ih*s}
+ return{W,H:Hh,x:(W-w)/2,y:(Hh-h)/2,w,h,clip:o.ft=='f'?[m,m,aw,ah]:0}}
+const pgOpts=()=>({ps:$('#o_ps').value,or:$('#o_or').value,mm:Math.max(0,+$('#o_mm').value||0),ft:$('#o_ft').value});
+const putImg=(pg,im,L)=>{if(L.clip)pg.pushOperators(PDFLib.pushGraphicsState(),PDFLib.rectangle(...L.clip),PDFLib.clip(),PDFLib.endPath());pg.drawImage(im,{x:L.x,y:L.y,width:L.w,height:L.h});if(L.clip)pg.pushOperators(PDFLib.popGraphicsState())};
+const PAGEOPT=`<label>Tamaño de página<select id="o_ps"><option value="a4">A4</option><option value="a3">A3</option><option value="a5">A5</option><option value="letter">Carta (Letter)</option><option value="legal">Legal</option><option value="img">Igual que la imagen</option></select></label>
+<label>Orientación<select id="o_or"><option value="a">Automática (según la imagen)</option><option value="v">Vertical</option><option value="h">Horizontal</option></select></label>
+<label>Margen (mm)<input id="o_mm" type="number" min="0" max="100" value="10"></label>
+<label>Ajuste de la imagen<select id="o_ft"><option value="c">Ajustar (sin recortar)</option><option value="f">Rellenar (recorta lo que sobre)</option><option value="s">Estirar (deforma)</option><option value="o">Tamaño real (96 ppp, sin ampliar)</option></select></label>`;
+const IMGNOTE=`<p class="muted" style="grid-column:1/-1">Formatos: JPG/JPEG, PNG, WEBP, BMP, GIF (solo el primer fotograma), SVG (se rasteriza) y TIFF (sin compresión, PackBits, LZW o Deflate; los TIFF de fax/CCITT o con JPEG interno solo funcionan si tu navegador los lee, p. ej. Safari). JPG y PNG se incrustan sin recomprimir cuando es posible. Se respeta la orientación EXIF.</p>`;
+O.img2pdf=()=>PAGEOPT+`<label>Calidad JPEG al convertir (WEBP, BMP, TIFF…)<input id="o_q" type="range" min=".5" max="1" step=".02" value=".92"></label>`+IMGNOTE;
+X.img2pdf=async()=>{const o=pgOpts(),q=+$('#o_q').value,d=await D.create(),nt=new Set();let n=0;
+ for(let i=0;i<S.files.length;i++){const f=S.files[i];let its;try{its=await loadImgs(f)}catch(e){throw new Error(`«${f.name}»: ${e.message}`)}
+  for(const it of its){const im=await embedItem(d,it,q),L=layout(it.lw,it.lh,o),pg=d.addPage([L.W,L.H]);putImg(pg,im,L);n++;if(it.kind=='svg')nt.add('SVG rasterizado');if(it.kind=='gif')nt.add('GIF: solo el primer fotograma')}
+  prog((i+1)/S.files.length,`Imagen ${i+1} de ${S.files.length}…`);await tick()}
+ setRes([{name:(S.files.length==1?base(S.files[0].name):'imagenes')+'.pdf',blob:pdfBlob(await d.save()),note:`${n} página(s)${nt.size?' · '+[...nt].join(' · '):''}`}])};
+
+/* ---------- OCR de imágenes ---------- */
+const LANGSEL=O.ocr().match(/<label>Idioma.*?<\/label>/s)[0];
+O.ocrimg=()=>LANGSEL+`<p class="muted" style="grid-column:1/-1">Para el PDF con texto seleccionable se usan estas opciones de página:</p>`+PAGEOPT+
+ `<p class="muted" style="grid-column:1/-1">Reconoce el texto en el navegador con Tesseract.js (la primera vez descarga el motor y el idioma; <b>tus imágenes no salen de tu equipo</b>). Acepta los mismos formatos que «Imágenes a PDF». Solo alfabeto latino.</p>`;
+const OC={};
+function invisText(pg,ft,words,L,it){pg.pushOperators(PDFLib.pushGraphicsState(),PDFLib.setTextRenderingMode(PDFLib.TextRenderingMode.Invisible));
+ const ws=L.w/it.w,hs=L.h/it.h;
+ for(const wd of words){const t=clean(wd.text||'').trim();if(!t)continue;const b=wd.bbox,wp=(b.x1-b.x0)*ws,hp=(b.y1-b.y0)*hs,w1=ft.widthOfTextAtSize(t,1);
+  pg.drawText(t+' ',{x:L.x+b.x0*ws,y:L.y+L.h-b.y1*hs+hp*.2,size:Math.max(2,Math.min(wp/w1,hp*1.1)),font:ft})}
+ pg.pushOperators(PDFLib.popGraphicsState())}
+X.ocrimg=async()=>{const T=await lib(TESS_URL,'Tesseract'),lang=$('#o_lg').value,tot=S.files.length,rs=[];let k=0;
+ $('#st').textContent='Preparando el motor OCR (primera vez: descarga del idioma)…';
+ const w=await T.createWorker(lang,1,{logger:m=>{if(m.status=='recognizing text')prog((k+m.progress)/tot,`OCR: imagen ${Math.min(k+1,tot)} de ${tot} · ${Math.round(m.progress*100)}%`)}});
+ try{for(let i=0;i<tot;i++){k=i;const f=S.files[i];let its;try{its=await loadImgs(f)}catch(e){throw new Error(`«${f.name}»: ${e.message}`)}
+   for(let j=0;j<its.length;j++){const it=its[j],s=Math.max(1,Math.min(3,1600/Math.max(it.w,it.h))),c=itCanvas(it,s),{data}=await w.recognize(c,{},{blocks:true});
+    const words=((data.words||(data.blocks||[]).flatMap(b=>b.paragraphs.flatMap(q=>q.lines.flatMap(l=>l.words)))).map(x=>({text:x.text,bbox:{x0:x.bbox.x0/s,y0:x.bbox.y0/s,x1:x.bbox.x1/s,y1:x.bbox.y1/s}})));
+    rs.push({fi:i,j,name:it.name,w:it.w,h:it.h,words,text:(data.text||'').trim(),conf:data.confidence||0});c.width=c.height=0;it.bm&&it.bm.close()}
+   await tick()}
+ }finally{await w.terminate()}
+ OC.rs=rs;OC.lang=lang;const multi=rs.length>1,txt=rs.map(r=>(multi?`=== ${r.name} ===\n`:'')+r.text).join('\n\n');OC.txt=txt;
+ let p=$('#otp');if(!p){p=H('div',{id:'otp'});$('#act').after(p)}p.replaceChildren(H('h2',{},'Texto reconocido'),
+  H('textarea',{id:'otx',readOnly:true,rows:12,style:'width:100%;padding:12px;border:1px solid var(--ln);border-radius:12px;font:15px/1.5 inherit;resize:vertical'}),
+  H('p',{class:'muted',id:'oti'},`${rs.length} imagen(es) · ${txt.split(/\s+/).filter(Boolean).length} palabras · confianza media ${Math.round(rs.reduce((a,r)=>a+r.conf,0)/rs.length)}%`),
+  H('div',{class:'bar'},H('button',{class:'btn',onclick:go(ocrCopy)},'📋 Copiar'),H('button',{class:'btn',onclick:()=>dl(new Blob([OC.txt],{type:'text/plain;charset=utf-8'}),base(S.files[0].name)+'.txt')},'⬇ Descargar TXT'),H('button',{class:'btn pri',onclick:go(ocrPdf)},'📄 Crear PDF con texto seleccionable')));
+ $('#otx').value=txt||'(No se reconoció texto)';if(!txt)err(new Error('El OCR no reconoció texto. Prueba con otra imagen o idioma.'));p.scrollIntoView({behavior:'smooth'})};
+async function ocrCopy(){const t=OC.txt||'';try{await navigator.clipboard.writeText(t)}catch(e){const a=$('#otx');a.select();if(!document.execCommand('copy'))throw new Error('No se pudo copiar: selecciona el texto y cópialo manualmente.')}$('#oti').textContent='✓ Texto copiado al portapapeles'}
+async function ocrPdf(){if(!OC.rs||!OC.rs.length)throw new Error('Primero reconoce el texto.');const o=pgOpts(),d=await D.create(),ft=await d.embedFont(SF.Helvetica);let n=0;
+ const cache={};
+ for(const r of OC.rs){const f=S.files[r.fi];cache[r.fi]??=await loadImgs(f);const it=cache[r.fi][r.j],im=await embedItem(d,it,.92),L=layout(it.lw,it.lh,o),pg=d.addPage([L.W,L.H]);putImg(pg,im,L);invisText(pg,ft,r.words,L,it);n++;prog(n/OC.rs.length,`Página ${n} de ${OC.rs.length}…`);await tick()}
+ setRes([{name:(S.files.length==1?base(S.files[0].name):'imagenes')+'_ocr.pdf',blob:pdfBlob(await d.save()),note:`${n} página(s) · imagen original + capa de texto invisible, seleccionable y buscable · idioma ${OC.lang}`}])}
+
+
+/* ============ Conversor multimedia: imágenes y audio (solo lo que funciona y se ha probado) ============ */
+/* Vídeo, MP3/AAC/OGG/M4A de salida: descartados (requieren FFmpeg.wasm ≈31 MB, muy lento, sin multihilo desde un archivo local; no probable aquí). */
+const IMGK=['img2pdf','ocrimg','imgconv'];
+let WEBP_OK=null;const webpUI=()=>{const sl=$('#o_of');if(!sl)return;if(WEBP_OK&&![...sl.options].some(o=>o.value=='webp'))sl.insertBefore(new Option('WEBP','webp'),[...sl.options].find(o=>o.value=='bmp'));const n=$('#webpn');if(n)n.textContent=WEBP_OK===false?' Este navegador no puede crear WEBP, por eso no aparece.':''};
+{const c=H('canvas');c.width=c.height=2;cvBlob(c,'image/webp',.8).then(b=>{WEBP_OK=!!b&&b.type=='image/webp'}).catch(()=>{WEBP_OK=false}).then(webpUI)}
+const flat=(cv,bg)=>{const c=H('canvas');c.width=cv.width;c.height=cv.height;const x=c.getContext('2d');x.fillStyle=bg;x.fillRect(0,0,c.width,c.height);x.drawImage(cv,0,0);return c};
+function encBmp(cv,bg){const w=cv.width,h=cv.height,rb=(w*3+3)&~3,sz=54+rb*h,u=new Uint8Array(sz),dv=new DataView(u.buffer);
+ u[0]=66;u[1]=77;dv.setUint32(2,sz,true);dv.setUint32(10,54,true);dv.setUint32(14,40,true);dv.setInt32(18,w,true);dv.setInt32(22,h,true);dv.setUint16(26,1,true);dv.setUint16(28,24,true);dv.setUint32(34,rb*h,true);dv.setUint32(38,2835,true);dv.setUint32(42,2835,true);
+ const px=flat(cv,bg).getContext('2d').getImageData(0,0,w,h).data;
+ for(let y=0;y<h;y++){let o=54+(h-1-y)*rb;for(let x=0;x<w;x++){const i=(y*w+x)*4;u[o++]=px[i+2];u[o++]=px[i+1];u[o++]=px[i]}}return new Blob([u],{type:'image/bmp'})}
+function encTiff(cv,alpha){const w=cv.width,h=cv.height,n=alpha?4:3,d=cv.getContext('2d').getImageData(0,0,w,h).data,body=new Uint8Array(w*h*n);
+ for(let i=0,j=0;i<d.length;i+=4){body[j++]=d[i];body[j++]=d[i+1];body[j++]=d[i+2];if(alpha)body[j++]=d[i+3]}
+ const N=alpha?11:10,ifd=2+12*N+4,bpsOff=8+ifd,dataOff=bpsOff+n*2,u=new Uint8Array(dataOff+body.length),dv=new DataView(u.buffer);
+ u[0]=73;u[1]=73;dv.setUint16(2,42,true);dv.setUint32(4,8,true);dv.setUint16(8,N,true);let o=10;
+ const e=(tag,ty,cnt,val)=>{dv.setUint16(o,tag,true);dv.setUint16(o+2,ty,true);dv.setUint32(o+4,cnt,true);if(ty==3&&cnt==1)dv.setUint16(o+8,val,true);else dv.setUint32(o+8,val,true);o+=12};
+ e(256,4,1,w);e(257,4,1,h);e(258,3,n,bpsOff);e(259,3,1,1);e(262,3,1,2);e(273,4,1,dataOff);e(277,3,1,n);e(278,4,1,h);e(279,4,1,body.length);e(284,3,1,1);if(alpha)e(338,3,1,2);
+ dv.setUint32(o,0,true);for(let k=0;k<n;k++)dv.setUint16(bpsOff+k*2,8,true);u.set(body,dataOff);return new Blob([u],{type:'image/tiff'})}
+O.imgconv=()=>`<label>Convertir a<select id="o_of"><option value="jpg">JPG</option><option value="png">PNG</option><option value="bmp">BMP</option><option value="tiff">TIFF</option></select></label>
+<label>Calidad (JPG y WEBP)<input id="o_q" type="range" min=".5" max="1" step=".02" value=".92"></label>
+<label>Fondo para transparencias (JPG y BMP)<input id="o_bg" type="color" value="#ffffff"></label>
+<p class="muted" style="grid-column:1/-1">Entradas: JPG, PNG, WEBP, BMP, TIFF (varios tipos), GIF (1.er fotograma) y SVG (se rasteriza). Las salidas conservan la transparencia en PNG, WEBP y TIFF. Se aplica la orientación EXIF y se descartan los metadatos. <span id="webpn"></span> SVG no se ofrece como salida: a partir de una imagen no se obtiene un vector real.</p>`;
+X.imgconv=async()=>{const fmt=$('#o_of').value,q=+$('#o_q').value,bg=$('#o_bg').value,r=[],used={};
+ for(let i=0;i<S.files.length;i++){const f=S.files[i];let its;try{its=await loadImgs(f,true)}catch(e){throw new Error(`«${f.name}»: ${e.message}`)}
+  for(const it of its){const cv=it.cv||bmCanvas(it.bm);it.bm&&it.bm.close();let b;
+   if(fmt=='png')b=await cvBlob(cv,'image/png');
+   else if(fmt=='webp'){b=await cvBlob(cv,'image/webp',q);if(!b||b.type!='image/webp')throw new Error('Este navegador no puede crear WEBP.')}
+   else if(fmt=='jpg')b=await cvBlob(flat(cv,bg),'image/jpeg',q);
+   else if(fmt=='bmp')b=encBmp(cv,bg);else b=encTiff(cv,hasAlpha(cv));
+   let nm=`${it.name}.${fmt}`;if(used[nm]){nm=`${it.name}_${used[nm]+1}.${fmt}`}used[`${it.name}.${fmt}`]=(used[`${it.name}.${fmt}`]||0)+1;
+   r.push({name:nm,blob:b,note:`${cv.width}×${cv.height} px`});c0(cv)}
+  prog((i+1)/S.files.length,`Imagen ${i+1} de ${S.files.length}…`);await tick()}
+ setRes(r)};
+const c0=c=>{c.width=c.height=0};
+
+/* ---------- Audio: decodifica el navegador; salida WAV (PCM) y FLAC (codificador propio) ---------- */
+const AUD_ACC='audio/*,.mp3,.wav,.aac,.flac,.ogg,.oga,.opus,.m4a';
+const isAudioFile=f=>/^audio\//.test(f.type)||/\.(mp3|wav|aac|flac|ogg|oga|opus|m4a)$/i.test(f.name);
+function probeRate(u){const le=o=>u[o]|(u[o+1]<<8)|(u[o+2]<<16)|((u[o+3]<<24)>>>0);
+ if(u[0]==82&&u[1]==73&&u[2]==70&&u[3]==70)return le(24);
+ if(u[0]==102&&u[1]==76&&u[2]==97&&u[3]==67)return(u[18]<<12)|(u[19]<<4)|(u[20]>>4);
+ if(u[0]==79&&u[1]==103&&u[2]==103&&u[3]==83){const s=String.fromCharCode(...u.subarray(0,Math.min(u.length,400)));if(s.includes('OpusHead'))return 48000;const i=s.indexOf('\x01vorbis');return i>=0?le(i+12):0}
+ if(u[4]==102&&u[5]==116&&u[6]==121&&u[7]==112){for(let i=0;i<u.length-40;i++)if(u[i]==109&&u[i+1]==112&&u[i+2]==52&&u[i+3]==97)return(u[i+28]<<8)|u[i+29];return 0}
+ if(u[0]==255&&(u[1]&0xF6)==0xF0)return[96000,88200,64000,48000,44100,32000,24000,22050,16000,12000,11025,8000,7350][(u[2]>>2)&15]||0;
+ let p=0;if(u[0]==73&&u[1]==68&&u[2]==51)p=10+(((u[6]&127)<<21)|((u[7]&127)<<14)|((u[8]&127)<<7)|(u[9]&127));
+ for(let i=p;i<u.length-4&&i<p+4096;i++)if(u[i]==255&&(u[i+1]&0xE0)==0xE0){const v=(u[i+1]>>3)&3,sr=(u[i+2]>>2)&3;if(v!=1&&sr!=3&&((u[i+1]>>1)&3)!=0)return({3:[44100,48000,32000],2:[22050,24000,16000],0:[11025,12000,8000]})[v][sr]}
+ return 0}
+const AUDIO_CAP=()=>{const a=document.createElement('audio'),t=m=>a.canPlayType(m)?'✓':'✗';return`MP3 ${t('audio/mpeg')} · WAV ${t('audio/wav')} · OGG ${t('audio/ogg; codecs="vorbis"')} · FLAC ${t('audio/flac')} · AAC/M4A ${t('audio/mp4; codecs="mp4a.40.2"')}`};
+O.audioconv=()=>`<label>Convertir a<select id="o_af"><option value="wav">WAV (PCM sin pérdida)</option><option value="flac">FLAC (sin pérdida, comprimido)</option></select></label>
+<label>Profundidad<select id="o_ab"><option value="16">16 bits</option><option value="24">24 bits</option></select></label>
+<label>Frecuencia de muestreo<select id="o_ar"><option value="0">Original</option><option value="48000">48000 Hz</option><option value="44100">44100 Hz</option><option value="32000">32000 Hz</option><option value="22050">22050 Hz</option><option value="16000">16000 Hz</option><option value="8000">8000 Hz</option></select></label>
+<label>Canales<select id="o_ac"><option value="0">Originales</option><option value="1">Mono</option><option value="2">Estéreo</option></select></label>
+<p class="muted" style="grid-column:1/-1">Lectura de audio en este navegador: ${AUDIO_CAP()}. Solo se pueden abrir los formatos marcados con ✓ (los decodifica el propio navegador; AAC/M4A dependen del navegador). Las salidas MP3, AAC, OGG y M4A y todo el vídeo no están disponibles: exigirían FFmpeg.wasm (≈31 MB de descarga, muy lento y sin multihilo en un archivo local). Convertir a 24 bits desde una fuente de 16 no añade calidad.</p>`;
+const u8s=(dv,o,s)=>{for(let i=0;i<s.length;i++)dv.setUint8(o+i,s.charCodeAt(i))};
+function encWav(chs,rate,bits){const n=chs[0].length,c=chs.length,bp=bits/8,data=n*c*bp,u=new Uint8Array(44+data),dv=new DataView(u.buffer),mx=2**(bits-1);
+ u8s(dv,0,'RIFF');dv.setUint32(4,36+data,true);u8s(dv,8,'WAVEfmt ');dv.setUint32(16,16,true);dv.setUint16(20,1,true);dv.setUint16(22,c,true);dv.setUint32(24,rate,true);dv.setUint32(28,rate*c*bp,true);dv.setUint16(32,c*bp,true);dv.setUint16(34,bits,true);u8s(dv,36,'data');dv.setUint32(40,data,true);
+ let o=44;for(let i=0;i<n;i++)for(let k=0;k<c;k++){const v=Math.max(-mx,Math.min(mx-1,Math.round(chs[k][i]*mx)));if(bits==16){dv.setInt16(o,v,true);o+=2}else{u[o++]=v&255;u[o++]=(v>>8)&255;u[o++]=(v>>16)&255}}
+ return new Blob([u],{type:'audio/wav'})}
+const CRC8=(()=>{const t=new Uint8Array(256);for(let i=0;i<256;i++){let c=i;for(let k=0;k<8;k++)c=c&128?((c<<1)^7)&255:(c<<1)&255;t[i]=c}return t})(),CRC16=(()=>{const t=new Uint16Array(256);for(let i=0;i<256;i++){let c=i<<8;for(let k=0;k<8;k++)c=c&32768?((c<<1)^0x8005)&65535:(c<<1)&65535;t[i]=c}return t})();
+/* Codificador FLAC: bloques de 4096, subtramas CONSTANT / FIXED (orden 0-4, Rice con particiones) / VERBATIM; canales independientes */
+function encFlac(chs,rate,bits){const n=chs[0].length,c=chs.length,B=4096;let buf=new Uint8Array(1<<20),bp=0,acc=0,an=0;
+ const put=b=>{if(bp==buf.length){const t=new Uint8Array(buf.length*2);t.set(buf);buf=t}buf[bp++]=b};
+ const wb=(v,k)=>{while(k>0){const take=Math.min(k,8-an),sh=k-take;acc=(acc<<take)|(Math.floor(v/2**sh)%2**take);an+=take;k-=take;v=v%2**sh;if(an==8){put(acc&255);acc=0;an=0}}};
+ const un=q=>{while(q>0){const z=Math.min(q,8-an);acc<<=z;an+=z;q-=z;if(an==8){put(acc&255);acc=0;an=0}}wb(1,1)};
+ const sw=(v,k)=>wb(v<0?v+2**k:v,k);
+ put(102);put(76);put(97);put(67);wb(1,1);wb(0,7);wb(34,24);wb(Math.max(16,Math.min(B,n)),16);wb(B,16);wb(0,24);wb(0,24);wb(rate,20);wb(c-1,3);wb(bits-1,5);wb(n,36);for(let i=0;i<16;i++)put(0);
+ const resid=(x,o)=>{const L=x.length,r=new Array(L-o);for(let i=o;i<L;i++){const a=x[i];r[i-o]=o==0?a:o==1?a-x[i-1]:o==2?a-2*x[i-1]+x[i-2]:o==3?a-3*x[i-1]+3*x[i-2]-x[i-3]:a-4*x[i-1]+6*x[i-2]-4*x[i-3]+x[i-4]}return r};
+ const zz=v=>v>=0?2*v:-2*v-1;
+ const plan=(r,L,o)=>{let best=null;for(let po=0;po<=8;po++){const P=1<<po;if(L%P||(L>>po)<=o)break;const parts=[];let bits_=6,pos=0;
+   for(let j=0;j<P;j++){const m=(L>>po)-(j==0?o:0);let s=0;for(let i=0;i<m;i++)s+=zz(r[pos+i]);let bk=0,bc=1e18;for(let k=0;k<=30;k++){const cst=m*(k+1)+Math.floor(s/2**k);if(cst<bc){bc=cst;bk=k}}parts.push([bk,m]);bits_+=5+bc;pos+=m}
+   if(!best||bits_<best.bits)best={po,parts,bits:bits_}}return best};
+ const sub=x=>{const L=x.length;let constant=true;for(let i=1;i<L;i++)if(x[i]!==x[0]){constant=false;break}
+  if(constant){wb(0,1);wb(0,6);wb(0,1);sw(x[0],bits);return}
+  let bo=-1,bp_=null,bb=8+L*bits;
+  for(let o=0;o<=4&&o<L;o++){const r=resid(x,o),p=plan(r,L,o);if(!p)continue;const tot=o*bits+2+4+p.bits;if(tot<bb){bb=tot;bo=o;bp_={p,r}}}
+  if(bo<0){wb(0,1);wb(1,6);wb(0,1);for(let i=0;i<L;i++)sw(x[i],bits);return}
+  wb(0,1);wb(8+bo,6);wb(0,1);for(let i=0;i<bo;i++)sw(x[i],bits);wb(1,2);wb(bp_.p.po,4);let pos=0;
+  for(const[k,m]of bp_.p.parts){wb(k,5);for(let i=0;i<m;i++){const u=zz(bp_.r[pos+i]);un(Math.floor(u/2**k));if(k)wb(u%2**k,k)}pos+=m}};
+ const u8=(fn)=>{if(fn<128)wb(fn,8);else if(fn<2048){wb(0xC0|(fn>>6),8);wb(0x80|(fn&63),8)}else if(fn<65536){wb(0xE0|(fn>>12),8);wb(0x80|((fn>>6)&63),8);wb(0x80|(fn&63),8)}else{wb(0xF0|(fn>>18),8);wb(0x80|((fn>>12)&63),8);wb(0x80|((fn>>6)&63),8);wb(0x80|(fn&63),8)}};
+ for(let s=0,fn=0;s<n;s+=B,fn++){const L=Math.min(B,n-s),st=bp;wb(0xFFF8,16);const bc=L==4096?12:(L<=256?6:7);wb(bc,4);wb(0,4);wb(c-1,4);wb(0,3);wb(0,1);u8(fn);if(bc==6)wb(L-1,8);else if(bc==7)wb(L-1,16);
+  let cr=0;for(let i=st;i<bp;i++)cr=CRC8[cr^buf[i]];put(cr);
+  for(let k=0;k<c;k++)sub(chs[k].subarray(s,s+L));
+  if(an>0)wb(0,8-an);let c16=0;for(let i=st;i<bp;i++)c16=((c16<<8)&65535)^CRC16[(c16>>8)^buf[i]];put(c16>>8);put(c16&255)}
+ return new Blob([buf.subarray(0,bp)],{type:'audio/flac'})}
+X.audioconv=async()=>{const fmt=$('#o_af').value,bits=+$('#o_ab').value,tr=+$('#o_ar').value,tc=+$('#o_ac').value,r=[],used={};
+ for(let i=0;i<S.files.length;i++){const f=S.files[i];prog(i/S.files.length,`Decodificando ${f.name}…`);await tick();
+  const u=new Uint8Array(f.bytes),pr=probeRate(u),rate=tr||pr||44100;let ab;
+  try{ab=await new OfflineAudioContext(2,1,rate).decodeAudioData(f.bytes.slice(0))}catch(e){throw new Error(`«${f.name}»: tu navegador no puede decodificar este audio (${AUDIO_CAP()}).`)}
+  let chs=[...Array(ab.numberOfChannels).keys()].map(k=>ab.getChannelData(k));
+  if(tc==1&&chs.length>1){const m=new Float32Array(ab.length);for(let j=0;j<m.length;j++){let s=0;for(const c of chs)s+=c[j];m[j]=s/chs.length}chs=[m]}
+  else if(tc==2){if(chs.length==1)chs=[chs[0],chs[0]];else if(chs.length>2)chs=chs.slice(0,2)}
+  prog((i+.5)/S.files.length,`Codificando ${fmt.toUpperCase()}…`);await tick();
+  let blob;if(fmt=='wav')blob=encWav(chs,ab.sampleRate,bits);else{const mx=2**(bits-1),ic=chs.map(c=>{const o=new Int32Array(c.length);for(let j=0;j<c.length;j++)o[j]=Math.max(-mx,Math.min(mx-1,Math.round(c[j]*mx)));return o});blob=encFlac(ic,ab.sampleRate,bits)}
+  let nm=base(f.name)+'.'+fmt;if(used[nm])nm=base(f.name)+'_'+(used[nm]+1)+'.'+fmt;used[base(f.name)+'.'+fmt]=(used[base(f.name)+'.'+fmt]||0)+1;
+  r.push({name:nm,blob,note:`${ab.sampleRate} Hz · ${chs.length} canal(es) · ${bits} bits · ${ab.duration.toFixed(1)} s${tr==0&&!pr?' · frecuencia original no legible: se usó 44100 Hz':''}`});await tick()}
+ setRes(r)};
+
+/* ============ Reorganización de la página principal, buscador y navegación ============ */
+const CATS=[['a','DE CUALQUIER FORMATO A PDF','📥','A PDF'],['b','DE PDF A OTROS FORMATOS','📤','De PDF'],['c','EDITAR Y ORGANIZAR PDF','✏️','Editar'],['d','FIRMAR Y PROTEGER','🔐','Firmar'],['e','OCR Y RECONOCIMIENTO','🔎','OCR'],['f','CONVERSOR MULTIMEDIA','🎞️','Multimedia']];
+const CATMAP={editor:'c',img2pdf:'a',docx2pdf:'a',xlsx2pdf:'a',txt2pdf:'a',pdf2jpg:'b',pdf2png:'b',pdf2txt:'b',pdf2docx:'b',pdf2xlsx:'b',pdf2pptx:'b',
+ merge:'c',split:'c',extract:'c',delete:'c',reorder:'c',rotate:'c',dup:'c',insert:'c',blank:'c',organize:'c',compress:'c',wm:'c',num:'c',meta:'c',view:'c',protect:'d',sign:'d',ocr:'e',ocrimg:'e',imgconv:'f',audioconv:'f'};
+T.push({id:'imgconv',n:'Conversor de imágenes',i:'🎨',d:'JPG, PNG, WEBP, BMP y TIFF entre sí (también desde SVG y GIF)',k:'imgconv',act:'Convertir',multi:1},
+ {id:'audioconv',n:'Conversor de audio',i:'🎧',d:'MP3, WAV, OGG, FLAC, AAC y M4A a WAV o FLAC',k:'audioconv',act:'Convertir',multi:1,acc:AUD_ACC,dz:'Arrastra tus audios aquí'});
+T.unshift({id:'editor',n:'Editor PDF avanzado',i:'🛠️',d:'Edita el documento como en Acrobat: texto, imágenes, anotaciones, formularios, firma, OCR, páginas y más',k:'editor'});
+T.forEach(t=>{const c=CATS.find(x=>x[0]==CATMAP[t.id]);if(!c)throw new Error('Herramienta sin categoría: '+t.id);t.c=c[1]});
+const KW={editor:'editar editor acrobat texto escribir imagen anotar anotacion resaltar subrayar tachar nota comentario formulario campo firmar firma dibujar forma flecha enlace sello encabezado pie ocr comprimir proteger contrasena paginas organizar proyecto',img2pdf:'jpg jpeg png webp bmp gif tiff tif svg foto imagen',docx2pdf:'word doc docx documento',xlsx2pdf:'excel xls xlsx csv hoja calculo',txt2pdf:'texto txt',pdf2jpg:'imagen jpg jpeg',pdf2png:'imagen png',pdf2txt:'texto txt extraer',pdf2docx:'word doc docx',pdf2xlsx:'excel xlsx tablas',pdf2pptx:'powerpoint ppt pptx diapositivas',
+ merge:'combinar juntar',split:'separar partir',extract:'sacar paginas',delete:'borrar quitar paginas',reorder:'ordenar mover',rotate:'girar',compress:'reducir tamano peso',wm:'sello watermark',num:'paginar numeracion',meta:'titulo autor propiedades',view:'visor ver abrir',protect:'cifrar clave password contrasena',sign:'firma electronica autofirma certificado pades dni movil iphone ios android p12 pfx',ocr:'escaneado reconocer texto',ocrimg:'foto escaner texto ocr',imgconv:'convertir cambiar formato jpg png webp bmp tiff svg',audioconv:'convertir cambiar formato mp3 wav flac ogg aac m4a sonido musica'};
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+function home(){S={};const ws=norm($('#q').value.trim()).split(/\s+/).filter(Boolean),m=$('#main');m.replaceChildren();let tot=0;
+ const secs=CATS.map(([k,name,ic])=>{const ts=T.filter(t=>t.c==name&&ws.every(w=>norm(`${t.n} ${t.d} ${KW[t.id]||''} ${name}`).includes(w)));tot+=ts.length;return[k,name,ic,ts]}).filter(s=>s[3].length);
+ if(!ws.length)m.append(H('nav',{class:'chips','aria-label':'Categorías'},...CATS.map(([k,,ic,sh])=>H('button',{class:'chip',onclick:()=>{const e=$('#cat_'+k);e&&e.scrollIntoView({behavior:'smooth',block:'start'})}},ic+' '+sh))));
+ else m.append(H('p',{class:'muted',role:'status'},tot?`${tot} herramienta${tot>1?'s':''} encontrada${tot>1?'s':''}`:'Ninguna herramienta coincide con tu búsqueda.'));
+ for(const[k,name,ic,ts]of secs)m.append(H('section',{id:'cat_'+k,class:'cat'},H('h2',{},ic+' '+name,H('small',{},String(ts.length))),H('div',{class:'tools'},...ts.map(t=>H('button',{class:'tool',onclick:()=>openTool(t.id)},H('i',{},t.i),H('b',{},t.n),H('span',{},t.d))))))}
+$('#q').oninput=()=>{if(S.t&&history.state&&history.state.tool)history.replaceState({},'',location.pathname+location.search);home()};
+/* ============ Editor PDF avanzado (módulo en la carpeta editor/, cargado solo al abrirlo) ============ */
+let edLoad=null;
+function loadEditor(){if(edLoad)return edLoad;
+ edLoad=new Promise((res,rej)=>{if(!document.querySelector('link[data-fp]'))document.head.append(H('link',{rel:'stylesheet',href:'editor/editor.css','data-fp':''}));
+  const sc=H('script',{src:'editor/core.js'});sc.onload=res;sc.onerror=()=>{edLoad=null;rej(new Error('No se pudo cargar el editor PDF (editor/core.js). Abre index.html desde la carpeta completa de YO AMO EL PEDEFE.'))};document.head.append(sc)})
+  .then(()=>FP.ensureEditor()).catch(e=>{edLoad=null;throw e});return edLoad}
+async function openEditor(){prog(.3,'');await loadEditor();if((history.state||{}).tool!=='editor')return;await FP.show('pdf');prog(1)}
+{const rt=renderTool,hm=home;
+ renderTool=function(id){if(id=='editor'){S={};go(openEditor)();return}window.FP&&FP.hideEditor&&FP.hideEditor();return rt(id)};
+ home=function(){window.FP&&FP.hideEditor&&FP.hideEditor();return hm()}}
+/* Historial: cada herramienta y cada ventana (visor, comparación) es una entrada; «Volver» y el botón atrás del móvil funcionan igual */
+let homeY=0,skipPop=0;
+function openTool(id,pop){if(!pop){homeY=scrollY;history.pushState({tool:id},'','#'+id)}renderTool(id);scrollTo(0,0)}
+function goHome(){const st=history.state||{};if(st.tool&&!st.deep)history.back();else{if(st.deep)history.replaceState({},'',location.pathname+location.search);home();scrollTo(0,0)}}
+function ovOpen(){history.pushState({m:1,tool:(history.state||{}).tool},'')}
+function ovClosed(){if(history.state&&history.state.m){skipPop=1;history.back()}}
+function closeOverlays(){let c=0;if(!$('#vw').hidden){vClose();c=1}if(!$('#cm').hidden){$('#cm').hidden=true;c=1}if(!$('#md').hidden){$('#md').hidden=true;c=1}return c}
+addEventListener('popstate',e=>{if(skipPop){skipPop=0;return}if(closeOverlays())return;if(!$('#pw').hidden)$('#pwc').click();
+ const st=e.state;if(st&&st.tool&&T.some(t=>t.id==st.tool)){renderTool(st.tool);scrollTo(0,0)}else{home();scrollTo(0,homeY)}});
+{const id=location.hash.slice(1);if(T.some(t=>t.id==id)){history.replaceState({tool:id,deep:1},'');renderTool(id)}else{history.replaceState({},'');home()}}
+/* Botón flotante «subir» y altura de la cabecera para los accesos rápidos */
+{const up=$('#up'),hh=()=>document.documentElement.style.setProperty('--hh',$('header').offsetHeight+'px');hh();addEventListener('resize',hh);
+ addEventListener('scroll',()=>up.classList.toggle('show',scrollY>450),{passive:true});
+ up.onclick=()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+
+</script></body></html>
